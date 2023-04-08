@@ -1,0 +1,32 @@
+@media(max-width:580px) {
+    .identification {
+        padding: 24px 16px 27px 17px;
+        width: 288px;
+        &__form {
+            &-submit {
+                font-size: 12px;
+                line-height: 18px;
+                height: 40px;
+            }
+            &-wrapper {
+                margin-top: 32px;
+            }
+            &-submit {
+                margin-top: 50px;
+            }
+            &-link {
+                margin-bottom: -18px;
+            }
+        }
+        &__transition {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            &-title {
+                margin-bottom: 7px;
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+    }
+}

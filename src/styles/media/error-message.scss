@@ -1,0 +1,47 @@
+@media(max-width:1230px) {
+    .message {
+        width: 92%;
+        left: 4%;
+    }
+}
+
+@media(max-width:768px) {
+    .message {
+        padding: 0 19px;
+        height: 72px;
+        &__sign {
+            margin-right: 15px;
+            font-size: 13px;
+            padding: 1px 0 0 7px;
+            height: 18px;
+            width: 18px;
+        }
+        &__message {
+            font-size: 14px;
+            line-height: 18px;
+        }
+        &__close {
+            span {
+                width: 10px;
+                height: 1.1px;
+            }
+        }
+    }
+}
+
+@media(max-width: 560px) {
+    .message {
+        height: 78px;
+        padding: 12px 19px;
+        align-items: start;
+        &__wrapper {
+            align-items: start;
+        }
+        &__message {
+            max-width: 168px;
+        }
+        &__close {
+            margin-top: 3px;
+        }
+    }
+}

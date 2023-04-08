@@ -1,0 +1,102 @@
+@media(max-width:1230px) {
+    body {
+        width: 100%;
+    } 
+    .header {
+        padding: 26px 30px 15px 30px;
+        &__title {
+            margin-right: 150px;
+        }
+    }   
+}
+
+@media(max-width:992px) {
+    .header {
+        &__logo {
+            width: 150px;
+            height: 40px;
+        }
+        &__title {
+            margin-right: 50px;
+            h1 {
+                font-size: 28px;
+            }
+        } 
+   }   
+}
+
+@media(max-width:768px) {
+    .header {
+        padding: 32px 0 0px 66px;
+        &__wrapper {
+            justify-content: start;
+        }    
+        &__hamburger {
+            position: relative;
+            margin-right: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 32px;
+            width: 32px;
+            cursor: pointer;
+            span {
+                display: block;
+                width: 26.67px;
+                height: 2.67px;
+                background: #363636;
+                transition: all 0.3s;
+            }
+            &_visible {
+                span:nth-child(1){
+                    transform: rotate(45deg);
+                }
+                span:nth-child(3){
+                    transform: rotate(-45deg);
+                }
+                span:nth-child(2){
+                    display: none;
+                }
+                span {
+                    position: absolute;
+                    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+                }
+            }
+        }
+        &__logo {
+           display: none;
+        }
+        &__title {
+                margin: 0;
+            h1 {
+                font-size: 32px;
+                line-height: 40px;
+            }
+        } 
+        &__user {
+            display: none;
+        }   
+   }
+}
+
+@media(max-width: 460px) {
+    .header {
+        padding: 24px 0 24px 18px;
+        &__title {
+            h1 {
+                font-size: 18px;
+                line-height: 28px;
+                letter-spacing: 1px;
+            }
+        } 
+        &__hamburger {
+            height: 24px;
+            width: 24px;
+            span {
+                width: 19px;
+                height: 2px;
+            }
+        }   
+   }
+   
+}

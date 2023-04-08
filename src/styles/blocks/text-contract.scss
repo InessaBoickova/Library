@@ -1,0 +1,18 @@
+@use '../base/mixins' as *;
+
+.text-contract {
+    &-list {
+        &-main {
+            @include fz16(1.1px);
+            margin-top: 32px;
+            font-weight: 600;
+        }
+        &-submain {
+            @include fz16(1px);
+            padding-left: 28px;
+            li {
+                margin-top: 16px;
+            }
+        }
+    }
+}

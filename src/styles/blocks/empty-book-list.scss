@@ -1,0 +1,11 @@
+@use '../base/mixins' as *;
+
+.empty {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    padding-top: 200px ;
+    &__title {
+        @include fz32(null,#A7A7A7);
+        text-align: center;
+    }
+}

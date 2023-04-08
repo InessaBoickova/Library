@@ -1,0 +1,102 @@
+@use '../base/mixins' as *;
+
+.menu {
+    width: 100%;
+    &__list {
+        width: 100%;
+        &-wrap {
+           position: relative;
+        }
+    }
+    &__link {
+        p {
+            margin: 16px 0 0 22px;
+            span {
+                @include fz14();
+               
+            }
+            .menu__name {
+                @include fz16();
+                margin-right: 6px;
+            }
+        }
+        &-mt {
+            margin: 20px  0 42px 0;
+        }    
+    }
+    .active__link {
+        p {
+            @include fz16(null,null,28px);
+            font-weight: 700;
+            margin: 16px 0 0 22px;
+            .menu__name {
+                margin-right: 6px;
+            }
+            span {
+                background-image: $gradient-color;
+                color: transparent;
+                background-clip: text;
+            }
+        }   
+    }
+    &__link-main { 
+        width: 100%;
+        @include fz18(0.1px,$main-text-color);
+        .menu__vector {
+            display: none;
+        }
+    }
+    .active_link {
+        position: relative;
+        @include fz18();
+        background-image: $gradient-color;
+        color: transparent;
+        background-clip: text; 
+        &:after {
+            content:'';
+            margin-top: 9px;
+            display: block;
+            height: 1px;
+            width: 255px;
+            background: $gradient-color;
+        }
+        .menu__vector {
+            position: absolute;
+            right: 9px;
+            top: 0px;
+            filter: grayscale(0); 
+        }
+    }
+    &__btn { 
+        width: 50px;
+        cursor: pointer;
+        position: absolute;
+        top: 9px;
+        right: 14px;
+        border: none;
+        background: #FFFFFF;
+    }
+    &__hide {
+        display: none;
+        &::before {
+            content: ' ';
+            margin: 52px 0  30px -32px;
+            display: block;
+            height: 1px;
+            width: calc(100% + 32px);
+            background: $main-text-color;
+        }
+        &_link{
+            margin-top: 42px;
+        }
+    }
+    .menu_list_hide {
+        visibility: hidden;
+        height: 0;
+    }
+    .menu_list_hide_visible {
+        margin-bottom: 42px;
+        visibility: visible;
+        height: 100%;
+    }
+}

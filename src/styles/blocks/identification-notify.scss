@@ -1,0 +1,27 @@
+@use '../base/mixins' as *;
+
+.identification-notify {
+    margin: 0 auto;
+    padding: 42px 92px 48px 92px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    max-width: 600px;
+    height: max-content;
+    &__title {
+        @include fz24(0.1px ,$main-text-color,30px);
+        text-align: center;
+    }
+    &__descr {
+        @include fz16();
+        margin-top: 32px;
+        text-align: center;
+    }
+    &__button {
+        margin-top: 32px;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include button(410px,52px);
+    }
+}

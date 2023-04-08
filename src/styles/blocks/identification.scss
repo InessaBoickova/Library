@@ -1,0 +1,122 @@
+@use '../base/mixins' as *;
+
+.identification {
+    grid-row: 2;
+    margin: 0 auto;
+    padding: 48px 56px;
+    width: 528px;    
+    height: min-content;
+    background: #FFFFFF;
+    border-radius: 16px;
+    &__title {
+        @include fz24();
+    }
+    &__subtitle {
+        @include fz14(0.1px,$main-text-color,18px);
+        font-weight: 600px;
+        margin-top: 8px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        &-link {
+            margin-top: 20px;
+            @include fz12();
+        }
+        &-help {
+            @include fz12();
+            margin-top: 2px;
+        }
+        &-wrapper {
+            position: relative;
+            width: 100%;
+            background: #F9F9FA;
+            margin-top: 36px;
+            &-active {
+                position: relative;
+                width: 100%;
+                background: #F9F9FA;
+                margin-top: 36px;
+                label {
+                    @include fz12();
+                    top: 6px;
+                }
+            }
+        }
+        &-input {
+            @include fz14(0.1px,$main-text-color,18px);
+            padding: 26px 12px 12px 12px;
+            background: #F9F9FA;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: 0;
+        }
+        &-label {
+            @include fz14(0.1px,$main-text-color,18px);
+            position: absolute;
+            transition: top 0.2s ease-in-out , font-size 0.2s ease-in-out;
+            top: 19px;
+            left: 12px;
+        }
+
+        &-submit {
+            @include button(100%,52px,30px,16px);
+            margin-top: 32px;
+            &-block {
+                @include button(100%,52px,30px,16px);
+                margin-top: 32px;
+                background: #EBEBEB;
+            }
+        }
+        &-button_show {
+            cursor: pointer;
+            position: absolute;
+            border: none;
+            width: 24px;
+            height: 24px;
+            top: 16px;
+            right: 16px;
+            background-color: #F9F9FA;
+        }
+        &-successful_сheck {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 17px;
+            right: 42px;
+        }
+    }
+    &__transition {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        &-title {
+            @include fz16(0.1px,#727272,24px);
+            margin-right: 16px;
+            text-align: center;
+        }
+        &-link {
+            @include fz12(0.2px,$main-text-color,18px);
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            text-transform: uppercase; 
+        }
+        &-icon {
+            margin-left: 15px;
+            width: 18px;
+            height: 12px;
+        }
+    }
+
+    input[type=submit]::active, :hover, :focus {
+        outline: 0;
+        outline-offset: 0;
+    }
+    button::active, :hover, :focus {
+        border: none;
+        outline: 0;
+        outline-offset: 0;
+    }
+}

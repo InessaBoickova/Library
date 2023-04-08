@@ -1,0 +1,26 @@
+@media(max-width:768px) {
+    .text-contract {
+        &-list {
+            &-main {
+                letter-spacing: 0.8px; 
+            }
+            &-submain {
+                letter-spacing: 1.5px;
+            }
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    .text-contract {
+        &-list {
+            &-main {
+                margin-top: 24px;
+            }
+            &-submain {
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
+    }
+}

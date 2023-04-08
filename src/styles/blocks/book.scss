@@ -1,0 +1,158 @@
+@use '../base/mixins' as *;
+
+.book {
+    background: #FFFFFF;
+    padding-bottom: 41px;
+    &__button {
+        @include button();
+        &-booked {
+            @include button();
+            cursor: default;
+            background: #F9F9FA;
+            border: 1px solid #BFC4C9;
+            line-height: 18px;
+            color: $grey-color;
+        }
+        &-busy {
+            @include button();
+            background: #FFFFFF;
+            border: 1px solid #BFC4C9;
+            line-height: 18px;
+            color: $main-text-color;
+        }
+    }
+    &__main-block {
+        margin-top: 42px;
+        display: flex;
+        &-img {
+            position: relative;
+            img {
+                min-width: 445px;
+                height: 593px;
+            }
+        }
+        &-descr {
+            margin-left: 30px;
+            h2 {
+                @include fz32(0.1px);
+            }
+            h3 {
+                @include fz18(0.1px);
+                margin: 24px 0 32px 0;
+            }
+            &-about {
+                margin-top: 62px;
+                h4 {
+                    @include fz18(0.1px,$main-text-color);
+                    margin-bottom: 32px;
+                }
+                p {
+                    @include fz16(0.1px,null,$main-text-color);
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+    &__score {
+        margin-top: 42px;
+        h2 { 
+            @include fz18(0.1px,$main-text-color);
+        }
+        &-star {
+            margin-top: 15px;
+            width: 214px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span {
+                @include fz18(0.1px,$main-text-color);
+            }
+        }
+    }
+    &__detail {
+        margin-top: 63px;
+        h2 {
+            @include fz18(0.1px,$main-text-color);
+        }
+        &-wrapper {
+            display: flex;
+            justify-content: space-between;
+            p {
+                @include fz16(0.1px, $grey-color);
+                font-weight: 600;
+            }
+            span {
+                @include fz16(0.1px,null,$main-text-color);
+            }
+        }
+        &-small__block {
+            display: grid;
+            grid-template-columns: 191px 220px;
+            row-gap: 16px;
+        }
+        &-big__block {
+            display: grid;
+            grid-template-columns: 190px 445px;
+        }
+    }
+    &__reviews {
+        margin-top: 62px;
+        &-title {
+            display: flex;
+            align-items: center;
+            @include fz18(0.1px,$main-text-color);
+            span {
+                margin: 4px 0 0 6px;
+                @include fz14();
+            }
+        }
+        &-vector {
+            cursor: pointer;
+            filter: grayscale(1); 
+            margin-left: 29px;
+            &:hover {
+                filter: grayscale(0); 
+            }
+        }
+        &-button {
+            @include button();
+            &-disabled {
+                @include button();
+                background: #EBEBEB;
+            }
+        }
+        &-card {
+            margin-bottom: 43px;
+            max-width: 730px;
+            &__wrapper{
+                display: flex;
+                align-items: center;
+                h4 {
+                    @include fz16(0.1px,#727272);
+                    margin-left: 26px;
+                }
+            }
+            &__star { 
+                margin-top: 18px;
+                width: 166px;
+                display: flex;
+                justify-content: space-between;
+            }
+            &__descr {
+                @include fz16(0.1px,null,$main-text-color);
+                margin-top: 20px;
+            }
+            &__user {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+
+    .devider {
+        margin: 15px 0;
+        width: 350px;
+        height: 0px;
+        border: 1px solid #EBEBEB;
+    }
+}

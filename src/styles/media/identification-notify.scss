@@ -1,0 +1,21 @@
+@media(max-width:600px) {
+    .identification-notify {
+        margin-top: 30%;
+        padding: 42px 16px 32px 16px;
+        width: 288px;
+        max-height: 288px;
+        &__title {
+            font-size: 18px;
+            line-height: 28px;
+        }
+        &__descr {
+            font-size: 15px;
+            line-height: 20px;
+            margin: 24px 0;
+        }
+        &__button {
+            width: 256px;
+            height: 40px;
+        }
+    }
+}

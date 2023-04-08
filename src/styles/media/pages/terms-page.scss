@@ -1,0 +1,36 @@
+@media(max-width:1230px) {
+    .terms-page {
+        &__content {
+            padding: 35px 30px 62px 30px;
+        }
+    }
+}
+
+@media(max-width:768px) {
+    .terms-page {
+        &__content {
+            padding: 20px 50px 59px 35px;
+            &-header {
+                font-size: 32px;
+                line-height: 40px;
+            }
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    .terms-page {
+        grid-template-rows: 76px 1fr 104px;
+        &__content {
+            padding: 24px 10px 59px 0px;
+            &-header {
+                font-size: 18px;
+                line-height: 28px;
+                letter-spacing: 1.0px;
+            }
+            &-block {
+                margin-left: 17px;
+            }
+        }
+    }
+}

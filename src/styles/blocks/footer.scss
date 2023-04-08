@@ -1,0 +1,40 @@
+@use '../base/mixins' as *;
+
+.footer {
+    position: relative;
+    z-index: -1;
+    grid-row: 3;
+    &__divider {
+        height: 1px;
+        width: 100%;
+        background-color: #BFC4C9;
+    }
+    &__wrapper{
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__title {
+        @include fz16(1.0px);
+    }  
+    &__social {
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-link {
+            svg {
+                vertical-align: middle;
+            }
+        }
+        &-link:hover {
+            svg path {
+                fill:  #f87800;
+            }
+        }
+    }
+}
+   
+        
+

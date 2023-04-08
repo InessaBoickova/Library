@@ -1,0 +1,18 @@
+.main-page {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 105px 1fr 56px;
+    &__content {
+        padding: 47px 0 58px 0;
+        .container {
+            display: grid;
+            grid-template-columns: 259px 1fr;
+            column-gap: 26px;
+        }
+        &-block {
+            display: grid;
+            grid-template-rows: 38px 1fr;
+            row-gap: 32px;
+        }
+    }
+}

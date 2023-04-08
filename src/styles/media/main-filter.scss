@@ -1,0 +1,115 @@
+@use '../../styles/base/mixins' as *;
+
+@media(max-width:992px) {
+    .filter {
+        &__input {
+            &-search {
+                &-input {
+                    padding: 10px 10px 10px 25px;
+                    width: 197px;
+                    font-size: 12px;
+                    &-icon {
+                        left: 6px; 
+                    }  
+                }
+            }
+            &-rating {
+                width: 110px;
+                font-size: 12px;
+                padding: 10px 0 10px 15px;
+                &::before {
+                    top: 12px;
+                    left: 7px; 
+                }    
+            }
+        }        
+    }
+}
+
+@media(max-width:768px) {
+    .filter {
+        justify-content: space-around;
+        &__input {
+            &-search {
+                &-input {
+                    padding: 10px 10px 10px 40px;
+                    width: 274px;
+                    font-size: 14px; 
+                    &-icon {
+                        left: 17px; 
+                    } 
+                }  
+               
+            }
+            &-rating {
+                width: 148px;
+                padding: 10px 0 10px 30px;
+                font-size: 14px;
+                &::before {
+                    left: 17px; 
+                }    
+            } 
+        }
+        &__btn {
+            width: 112px;
+        }   
+    }  
+}       
+       
+@media(max-width: 700px) {
+    .filter {
+        justify-content: space-between;
+        padding: 0 0px 0 17px;
+        &__input {
+            position: relative;
+            display: flex;
+            caret-color: rgb(248, 54, 0);
+            &-search {
+                display: none;
+                &-btn {
+                    visibility: visible;
+                    width: 32px;
+                    height: 32px;
+                    border: none;
+                    background: #FFFFFF;
+                    @include shadow ();
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                        margin: 8px 0;
+                    }
+                    &:hover svg svg path{
+                        fill:  #f87800;
+                    }
+                }
+                &-button-close {
+                    height: 16px;
+                    width: 16px;
+                    visibility: visible;
+                    position: absolute;
+                    top: 8px;
+                    right: 17px;
+                    border: none;
+                    background: #FFFFFF;
+                }
+            }
+            &-rating {
+                padding: 0;
+                font-size: 0px;
+                width: 32px;
+                height: 32px;
+                &::before {
+                    left: 9px;
+                    top: 8px;
+                }    
+            }
+        }
+        &__btn {
+            &-button {
+                width: 32px;
+                height: 32px;
+            } 
+        }  
+    }
+}
+

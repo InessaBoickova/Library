@@ -1,0 +1,31 @@
+@media(max-width:580px) {
+    .forgot-pass {
+        padding: 23px 16px 51px 16px;
+        max-height: 458px;
+        width: 288px; 
+        &__link {
+            margin: 0 0 55px 0px;
+        }
+        &__form {
+            &-wrapper {
+                margin-top: 20px;
+            }
+            &-submit {
+                width: 256px;
+                height: 40px;
+                margin-top: 20px;
+            }
+        }
+        &__info {
+            width: 240px;
+           
+        }
+        &__transition {
+            flex-direction: column;
+            align-items: start;
+            &-title {
+                margin-bottom: 7px;
+            }
+        }
+    }
+}

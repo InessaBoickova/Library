@@ -1,0 +1,98 @@
+@use '../base/mixins' as *;
+
+.forgot-pass {
+    margin: 0 auto;
+    padding: 23px 56px 48px 56px;
+    width: 528px;
+    max-height: 422px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    &__title {
+        @include fz24();
+    }
+    &__link {
+        @include fz12(0.2px,#727272, 18px);
+        margin: 0 0 55px -39px;
+        font-weight: 600;
+        display: flex;
+        text-transform: uppercase;
+        &-icon {
+            margin-right: 15px;
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        &-wrapper {
+            position: relative;
+            width: 100%;
+            border-bottom: 1px solid #BFC4C9;
+            background: #F9F9FA;
+            margin-top: 32px;
+            &-active {
+                position: relative;
+                width: 100%;
+                border-bottom: 1px solid #BFC4C9;
+                background: #F9F9FA;
+                margin-top: 32px;
+                label {
+                    @include fz12();
+                    top: 6px;
+                }
+            } 
+        }
+      
+        &-input {
+            @include fz14(0.1px,$main-text-color,18px);
+            padding: 26px 12px 12px 12px;
+            background: #F9F9FA;
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: 0;
+            border:none; 
+        }
+        &-label {
+            @include fz14(0.1px,$main-text-color,18px);
+            position: absolute;
+            transition: top 0.2s ease-in-out , font-size 0.2s ease-in-out;
+            top: 19px;
+            left: 12px;
+        }
+        &-submit {
+            @include button(100%,52px,30px,16px);
+            margin-top: 34px;
+            text-align: center;
+            &-block {
+                @include button(100%,52px,30px,16px);
+                margin-top: 32px;
+                background: #EBEBEB;
+                text-align: center;
+            }
+        }
+    }
+    &__info {
+        @include fz12(0.2px,#727272,16px);
+        margin: 2px 0 0 10px;
+    }
+    &__transition {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        &-title {
+            @include fz16(0.1px,#727272,24px);
+            margin-right: 16px;
+            text-align: center;
+        }
+        &-link {
+            @include fz12(0.2px,$main-text-color,18px);
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            text-transform: uppercase; 
+        }
+        &-icon {
+            margin-left: 15px;
+        }
+    }
+}

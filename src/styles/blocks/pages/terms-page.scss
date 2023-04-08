@@ -1,0 +1,19 @@
+@use '../../base/mixins' as *;
+
+.terms-page {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 105px 1fr 56px;
+    &__content {
+        padding: 47px 0 58px 0;
+        &-wrapper {
+            display: flex;
+        }
+        &-header {
+            @include fz32(1.8px);
+        }
+        &-block {
+            margin-left: 30px;
+        }
+    }
+}

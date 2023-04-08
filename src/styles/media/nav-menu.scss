@@ -1,0 +1,117 @@
+@use '../../styles/base/mixins' as *;
+
+@media(max-width:992px) {
+    .menu {
+        &__link {
+            p {
+                font-size: 14px;
+                margin: 12px 0 0 10px;
+            }
+            &-mt {
+                margin: 24px 0 42px 0;
+            }   
+        }
+        .active__link {
+            p {
+                margin: 12px 0 0 10px;
+                font-size: 14px;
+            }
+        }
+        &__link-main { 
+            font-size: 16px;
+             &-mt {
+                margin: 35px 0;
+            }
+        }
+        .active__link-main {
+            font-size: 16px;
+        }
+    }
+}
+
+@media(max-width:768px) {
+    .menu {
+        padding: 32px 0 52px 0;
+        position: fixed;
+        top: 90px;
+        left: -100%;
+        z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        background: #F9F9FA;
+        @include shadow (10px);
+        &__list {
+            padding-left: 32px;
+            position: relative;
+        }
+        &__hide {
+           display: block;
+           &:before {
+            width: calc(100% + 0px);
+            margin: 52px 0  30px -9px;
+           }
+        }
+        &__btn {
+            width: 50px;
+            background: #F9F9FA;
+        }
+    }
+    .visible {
+        position: fixed;
+        opacity: 1;
+        left: 63px;
+        visibility: visible;
+        width: 502px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: calc(100% + -50px);     
+        .menu {
+            min-height: 442px;
+            &__link {
+                p {
+                    font-size: 16px;
+                    margin: 16px 0 0 22px;
+                }
+           }
+           &__link-main { 
+                font-size: 18px;
+                letter-spacing: 1.1px;
+                &-mt {
+                    margin: 42px 0;
+                }
+            }
+            &__btn {
+                right: 200px;
+            }
+        }
+    }
+    .menu .active__link {
+        p {
+            font-size: 16px;
+            margin: 16px 0 0 22px;
+        } 
+    }  
+    .active__link-main {
+        font-size: 18px;
+    }
+}
+@media(max-width: 600px) {
+    .menu {
+        top: 76px;
+        &__list {
+            padding-left: 16px;
+        }
+        .active_link {
+            letter-spacing: 1.4px;
+        } 
+        
+    }
+    .visible {
+        left: 16px;
+        width: 288px;
+        .menu__btn {
+            right: 14px;
+        }
+    }
+}
+

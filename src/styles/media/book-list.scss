@@ -1,0 +1,151 @@
+@media(max-width:1230px) {
+    .book-column {
+        grid-template-columns: repeat(3,190px);
+        justify-content: center;
+    }
+}
+
+@media(max-width:992px) {
+    .book-column {
+        grid-template-columns: repeat(2,190px);
+    }
+    .book-row {
+        .card { 
+            padding: 15px 24px 0px 20px;
+            &__wrapper {
+                margin-left: 10px;
+            }
+            &__title {
+                font-size: 24px;
+                line-height: 30px;
+            }
+            &__subtitle {
+                font-size: 16px;
+                line-height: 24px;
+            }
+            &__button {
+                width: 160px;
+                &-booked {
+                    width: 160px;
+                }
+                &-busy {
+                    width: 160px;
+                }
+            }
+        } 
+    }
+}
+
+@media(max-width:768px) {
+    .book-row {
+        grid-template-rows: repeat(1,204px);
+        row-gap: 16px;
+        .card { 
+            height: 204px;
+            &__score {
+                h2{
+                    margin-top: -32px;
+                }
+            }
+        } 
+    }
+
+    .book-column {
+        grid-template-columns: repeat(3,190px);
+        column-gap: 36px;
+        row-gap: 32px;
+        .card {
+            &__title {
+                height: 49px;
+                margin-top: 28px;
+                h3 {
+                    font-size: 12px;
+                }
+            }
+            &__subtitle {
+                margin: 0px 0 12px 0;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media(max-width: 710px) {
+    .book-column {
+        grid-template-columns: repeat(2,190px);
+        row-gap: 16px;
+        .card {
+            align-items: center;
+            &__wrapper {
+                padding: 0px 0px 0px 8px;
+            }
+        }
+    }   
+}
+
+@media(max-width: 560px) {
+    .book-row {
+        align-items: center;
+        justify-content: center;
+        margin-top: -4px;
+        .card { 
+            width: 288px;
+            height: 180px;
+            &__img { 
+                height: 100px;
+                width: 70px;
+            }
+            &__title {
+                font-size: 14px;
+                line-height: 18px;
+            }
+            &__subtitle {
+                margin-top: 1px;
+                font-size: 12px;
+                line-height: 18px;
+            }
+            &__score {
+                margin-top: 15px;
+            }
+            &__button {
+                width: 186px;
+                &-booked { 
+                    width: 186px;
+                }
+                &-busy {
+                    width: 186px;
+                }
+            }
+        } 
+    }
+
+    .book-column {
+        row-gap: 1px;
+        grid-template-columns: 288px;
+        .card { 
+            height: 470px;
+            &__title {
+                height: 54px;
+                margin-top: 18px;
+                h3 {
+                    font-size: 14px;
+                }
+            }
+            &__subtitle {
+                margin: 0;
+            }
+            &__button {
+                margin: 10px 0 16px 0;
+                width: 256px;
+                height: 40px;
+                &-booked {  
+                    width: 256px;
+                    height: 40px;
+                }
+                &-busy {
+                    width: 256px
+                }
+            }
+        } 
+    }   
+}

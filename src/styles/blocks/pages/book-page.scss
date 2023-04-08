@@ -1,0 +1,19 @@
+@use '../../base/mixins' as *;
+
+.book-page {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 196px 1fr 56px;
+    .menu {
+        padding: 32px 0 52px 0;
+        position: fixed;
+        top: 90px;
+        left: -100%;
+        z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.3s;
+        background: #F9F9FA;
+        @include shadow (10px);
+    }
+}
