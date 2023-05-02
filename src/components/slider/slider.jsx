@@ -14,11 +14,11 @@ export const SwiperSlider =  ({images}) => {
   if(images.length === 0) {
     return  <img src={cat} alt='img'/> 
   }if (images.length === 1 )  {
-    return  <img src={`https://strapi.cleverland.by${images[0].url}`} alt='img'/> 
+    return  <img src={images[0].url} alt='img'/> 
   }
 
 
-  const imageList = images.map((item)=> <SwiperSlide key={Math.random()}><img src={`https://strapi.cleverland.by${item.url}`}alt='img'/> </SwiperSlide>)
+  const imageList = images.map((item)=> <SwiperSlide key={Math.random()}><img src={item.url}alt='img'/> </SwiperSlide>)
   
   return (
     <div className="swiper">

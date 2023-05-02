@@ -22,8 +22,8 @@ export const MainPage = () => {
         <div className='main-page'>
             <Header/>
             {error ? <ErrorMessage status='erorrLoadingBooksList'/> : null}
-            {statusSelectBookingData && <ErrorMessage status={statusSelectBookingData} /> }
-            {statusChangeBookingData && <ErrorMessage status={statusChangeBookingData} /> }
+            {statusSelectBookingData && <ErrorMessage status={statusSelectBookingData} /> } 
+            {statusChangeBookingData && <ErrorMessage status={statusChangeBookingData} /> } 
             <div className="main-page__content">
                 <div className="container">
                     <NavMenu/>

@@ -15,7 +15,7 @@ export const BookList = () => {
   const dispatch = useDispatch()
     const raiseFilter = useSelector(state => state.filters.raiseFilter);
     const valueInput = useSelector((state)=> state.filters.valueInput);
-    const {id : idUser} = JSON.parse(localStorage.getItem('user'));
+    // const {id : idUser} = JSON.parse(localStorage.getItem('user'));
 
     const filteredBookListSelector = createSelector(
       (state) => state.filters.activeFilter,
@@ -67,7 +67,7 @@ export const BookList = () => {
 
         const {rating,booking,delivery,image,title,id,authors,issueYear} = item;    
     
-        const img = image ? `https://strapi.cleverland.by${image.url}` : cat;
+        const img = image ? image.url : cat;
         const titleCard = title.length <= 55? title : `${title.substring(0, 55)}...`;
         const {btnTitle,classBtn} = setBookingButtonStyles(delivery,booking,'card');
         const index = titleCard.toLowerCase().indexOf(valueInput.toLowerCase());
@@ -109,7 +109,7 @@ export const BookList = () => {
                   <button className={classBtn}
                         type='button' 
                         onClick={()=>onButtonClick()}
-                        disabled = {((booking && booking.customerId === idUser) || (!delivery && !booking))
+                        disabled = {(booking  || (!delivery && !booking))
                                       ? false : true}> 
                         {btnTitle}
                   </button>

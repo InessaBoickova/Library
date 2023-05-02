@@ -10,11 +10,11 @@ import logo from '../../resources/icon/logo.png';
 
 export const Header = () => {
         const [showPanel, setShowPanel] = useState(false)
-                const dispatch = useDispatch();
+        const dispatch = useDispatch();
         const navMenuOpen = useSelector(state=> state.listMenu.navMenuOpen);
 
-        const user = JSON.parse(localStorage.getItem('user'));
-        const {username} = user
+        // const user = JSON.parse(localStorage.getItem('user'));
+        // const {username} = user
 
         const disableScrolling = ()=> {
                 const x = window.scrollX;
@@ -39,8 +39,8 @@ export const Header = () => {
 
         const onExit = () => {
                 localStorage.removeItem('token');
-                localStorage.removeItem('user');
-                dispatch(setAuthorizationResult(''))
+                // localStorage.removeItem('user');
+                // dispatch(setAuthorizationResult(''))
         }
         
         return (
@@ -64,9 +64,8 @@ export const Header = () => {
                                                 <h1>Библиотека</h1>
                                         </div>
 
-                                     
                                         <button className="header__user" type='button' onClick={()=> setShowPanel(!showPanel)}>
-                                                <h3>Привет, {username}</h3>
+                                                <h3>Привет, Иван</h3>
                                                 <img src={userImg} alt="user" />
                                         </button>
 

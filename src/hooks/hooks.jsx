@@ -5,7 +5,7 @@ import { setSelectBookingData } from '../redux/actions/actions';
 export const useHooks = () => {
     const dispatch = useDispatch();
     const activeBookId = useSelector(state => state.modal.activeBookId)
-    const {id} =  JSON.parse(localStorage.getItem('user'));
+    // const {id} =  JSON.parse(localStorage.getItem('user'));
    
     const setStar = (num) => {
         const star = [1,2,3,4,5];
@@ -36,9 +36,9 @@ export const useHooks = () => {
         document.body.style.position = 'fixed';
         document.body.style.width = '100%';
         document.body.style.top = '';
-        if(activeBookId && activeBookId.dateOrder) {
-            dispatch(setSelectBookingData(new Date(activeBookId.dateOrder)))
-        }
+        // if(activeBookId && activeBookId.dateOrder) {
+        //     dispatch(setSelectBookingData(new Date(activeBookId.dateOrder)))
+        // }
     }
 
     const setBookingButtonStyles = (delivery,booking , start) => {
@@ -50,7 +50,7 @@ export const useHooks = () => {
             classBtn = `${start}__button-booked`
         }if(booking){
             btnTitle = 'Забронирована'
-            classBtn = (booking.customerId === id ? `${start}__button-busy`: `${start}__button-booked`)
+            classBtn = (booking.customerId === 123 ? `${start}__button-busy`: `${start}__button-booked`)
         }if(!delivery && !booking) {
             btnTitle = 'Забронировать'
             classBtn = `${start}__button`

@@ -8,13 +8,14 @@ import { setActiveBookId,setOpenModalChangeBookingData,setOpenModalReviewBook,se
 import close_vector from '../../resources/icon/close_vector.svg'
 import raise_vector from '../../resources/icon/raise_vector.svg';
 import userDefalt from '../../resources/icon/user_reviews.png'
+import cat from '../../resources/img/cat_image.png'
 import { useBooksServices } from '../../services/books';
 import { SwiperSlider } from '../slider/slider';
 import { Spinner } from '../spinner/spinner';
 
 export const Book = () => {
     const dispatch = useDispatch()
-    const {id : idUser} = JSON.parse(localStorage.getItem('user'));
+    // const {id : idUser} = JSON.parse(localStorage.getItem('user'));
     const {setStar,setBookingButtonStyles} = useHooks ();
     
     const {bookId} = useParams();
@@ -57,7 +58,7 @@ export const Book = () => {
             )
         }) : null
 
-        const repeatComment =  reviewsList && reviewsList.find(i => +i.key === idUser )
+        // const repeatComment =  reviewsList && reviewsList.find(i => +i.key === idUser )
         const actionParamsBtn = (booking) ?  setOpenModalChangeBookingData : setOpenModalSelectBookingData ;
         const activeBookData = {idBook:id ,bookingId: (booking)? booking.id : null , dateOrder: (booking)? booking.dateOrder : null}
 
@@ -74,14 +75,14 @@ export const Book = () => {
             <div className="container">
                  <div className="book__main-block">
                      <div className="book__main-block-img">
-                       {images ?  <SwiperSlider images={images}/> : null}
+                       {images ?  <SwiperSlider images={images}/> : <img src={cat} alt='img'/> }
                      </div>
                      <div className="book__main-block-descr">
                          <h2>{title}</h2>
                          <h3>{authors}</h3>
                          <button className={classBtn} type='button'
                                 onClick={()=>onButtonClick()}
-                                disabled = {((delivery && booking) || (booking && booking.customerId !== idUser) || (delivery && delivery.recipientId !== idUser)) ? true : false}>
+                                disabled = {(delivery && booking) ? true : false}>
                                 {btnTitle}
                         </button>
                          <div className="book__main-block-descr-about">
@@ -143,8 +144,8 @@ export const Book = () => {
                     <div>
                         {showReviewsList && comments ?  reviewsList : null}
 
-                        <button disabled={repeatComment? true : false}
-                            type='button' className={repeatComment? 'book__reviews-button-disabled' : 'book__reviews-button' }
+                        <button 
+                            type='button' className='book__reviews-button' 
                             onClick={()=> setOpenModal(setOpenModalReviewBook)}> 
                             оценить книгу 
                         </button>

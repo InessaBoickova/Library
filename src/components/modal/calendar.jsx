@@ -54,7 +54,6 @@ export const Calendar = () => {
         }
     }
 
-
     const setArrDates = () => {
         const data = new Date();
         const yearsMonthNames = [];
@@ -115,7 +114,6 @@ export const Calendar = () => {
         }if(date.dayNumberInWeek !== 4 && date.dayNumberInWeek !== -1 && date.dayNumberInWeek !== 5) {
             return createData( new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate() + 1,0))
         }
-    
     }
 
     const bookingDay = activeToBookingDay();
@@ -134,7 +132,6 @@ export const Calendar = () => {
                             {yearsMonthNames.map((item,index) => <option key={item} value={index}>{item}</option>)}
                 </select>
 
-               
                     <button type="button" onClick={()=> onPrevMonth()}>{'<'}</button>
                     <button type="button" onClick={()=> onNextMonth()}>{'>'}</button>
                
@@ -142,12 +139,11 @@ export const Calendar = () => {
 
             <div className='calendar__body' >
                 <div className='calendar__body-name'> 
-                    {weekDayNames.map((i) => <span key={i}> {i}</span>)}
+                    {weekDayNames.map((i) => <span key={i}>{i}</span>)}
                 </div> 
               
                  <div className='calendar__body-days' >
-                  
-                        
+                    
                     {
                     // eslint-disable-next-line array-callback-return, consistent-return
                         createElem(createMonth().createMonthDays()).map((i) => {
@@ -196,6 +192,3 @@ export const Calendar = () => {
         </div>
     )
 }
-
-
-

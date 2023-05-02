@@ -10,6 +10,8 @@ import raise_vector from '../../resources/icon/raise_vector.svg';
 import { useBooksServices } from '../../services/books';
 
 export const NavMenu = () => {
+    const {getListOfGenres} = useBooksServices();
+
     const location = useLocation();
     const dispatch = useDispatch();
     const navMenuOpen = useSelector(state => state.listMenu.navMenuOpen);
@@ -17,7 +19,6 @@ export const NavMenu = () => {
     const loading = useSelector(state => state.book.loading);
     const error = useSelector(state => state.book.error);
     const ref = useRef();
-    const {getListOfGenres} = useBooksServices();
 
     const listSelector = createSelector(
         (state) => state.book.booksList,
@@ -36,13 +37,12 @@ export const NavMenu = () => {
         }
       )
 
-    const ListOfGenres = useSelector(listSelector);
-
     useEffect (()=> {
         getListOfGenres()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
+    const listOfGenres = useSelector(listSelector);
 
     useEffect (()=> {
         if ( location.pathname !== '/books/all' && window.innerWidth < 769 && !error ){
@@ -75,11 +75,11 @@ export const NavMenu = () => {
 
     const onExit = () => {
         localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        // localStorage.removeItem('user');
         dispatch(setAuthorizationResult(''))
     }
    
-    const list = ListOfGenres.map((i)=>{
+    const list = listOfGenres.map((i)=>{
         const {name,path,number} = i;
         
         return  (

@@ -1,6 +1,9 @@
 import { useCallback } from 'react';
 import {useDispatch,useSelector } from 'react-redux';
 
+import bookExact from '../data/book-exact.json'
+import books from '../data/books.json'
+import categories from '../data/categories.json'
 import { openNavMenu,setBook,setBooksList,setError,setListOfGenres,setLoading } from '../redux/actions/actions';
 
 import axiosApi from './interceptors';
@@ -32,14 +35,17 @@ export const useBooksServices = () => {
     );
 
     const getBooksList = () => {
-       onRequest(setBooksList,'api/books');
+    //    onRequest(setBooksList,'api/books');
+        dispatch(setBooksList(books.books))
     }
 
     const getBook = (id) => {
-        onRequest(setBook,`api/books/${id}`)
+        // onRequest(setBook,`api/books/${id}`)
+       dispatch(setBook(bookExact.bookExact.find((i) => i.id === +id)))
     }
     const getListOfGenres = () => {
-        onRequest(setListOfGenres,'api/categories')
+        // onRequest(setListOfGenres,'api/categories');
+        dispatch(setListOfGenres(categories.categories))
     }
 
     return {getBooksList,getListOfGenres,getBook}

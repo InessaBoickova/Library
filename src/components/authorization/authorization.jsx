@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useForm  } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 
 import { setRegistrationStep } from '../../redux/actions/actions'
 import eye_open from '../../resources/icon/eye_open.svg'
@@ -16,7 +16,10 @@ export const Authorization = () => {
     const [inpurErrorOne,setInpurErrorOne] = useState(false);
     const [inpurErrorTwo,setInpurErrorTwo] = useState(false);
     const [showPassword , setShowPassword] = useState(false);
-    const {authorizationUser} = useIdentificationServices();
+    // const {authorizationUser} = useIdentificationServices();
+    const navigate = useNavigate();
+
+    
 
     const borderOneColor = (inpurErrorOne) ? '#F42C4F' : '#BFC4C9' ;
     const borderTwoColor = (inpurErrorTwo) ? '#F42C4F' : '#BFC4C9' ;
@@ -32,7 +35,9 @@ export const Authorization = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         if(!inpurErrorOne || !inpurErrorTwo){
-            authorizationUser(data)
+            // authorizationUser(data)
+            localStorage.setItem('token', 5656565965629);
+            navigate('/books');
         }
     }
 

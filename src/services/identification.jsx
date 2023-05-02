@@ -83,7 +83,6 @@ export const useIdentificationServices = () => {
             })
             .catch(err => {
                 (err.response.status === 400) 
-                
                     ? dispatch(setAuthorizationResult('error400'))  
                     : dispatch(setAuthorizationResult('error'))
             })
