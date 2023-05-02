@@ -18,8 +18,6 @@ export const ModalReviewBook = () => {
     const {submitBookReview} = useActionUserBook();
     const {setCloseModal} = useHooks();
 
-    console.log(openModalReviewBook)
-
     const setStar = (num) => {
         const star = [1,2,3,4,5];
         const starList = star.map((i,index)=>{

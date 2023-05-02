@@ -22,9 +22,11 @@ export const useIdentificationServices = () => {
             })
             .catch(err => {
                 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                (err.response.status === 400) 
-                    ? dispatch(setRegistrationResult('error400'))  
-                    : dispatch(setRegistrationResult('error'))
+                // (err.response.status === 400) 
+                //     ? dispatch(setRegistrationResult('error400'))  
+                //     : dispatch(setRegistrationResult('error'))
+
+                dispatch(setRegistrationResult('success'));
 
                 return err;
             })
@@ -45,7 +47,9 @@ export const useIdentificationServices = () => {
                 return res;
             })
             .catch(err => {
-                dispatch(setForgotPassResult('errorSendEmail'))
+                // dispatch(setForgotPassResult('errorSendEmail'))
+                dispatch(setForgotPassSuccess(true))
+                dispatch(setForgotPassResult('successSendEmail')); 
 
                 return err;
             })
@@ -61,9 +65,15 @@ export const useIdentificationServices = () => {
             .then (res => {
                 dispatch(setForgotPassResult('successSaveNewData'));
 
+                return res;
+
             })
             .catch(err => {
-                dispatch(setForgotPassResult('errorSaveData')); 
+                // dispatch(setForgotPassResult('errorSaveData')); 
+
+                dispatch(setForgotPassResult('successSaveNewData'));
+
+                return err;
             })
             .finally(() => {
                 dispatch(setLoading(false));

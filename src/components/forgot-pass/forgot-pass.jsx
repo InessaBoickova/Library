@@ -16,7 +16,7 @@ const ForgotPassForm = () => {
    
     const [activeInputOne , setActiveInputOne] = useState ('forgot-pass__form-wrapper');
     const [inpurErrorOne,setInpurErrorOne] = useState(false);
-    // const {forgotPasswordUser} = useIdentificationServices()
+    const {forgotPasswordUser} = useIdentificationServices()
     const borderOneColor = (inpurErrorOne || (forgotPassResult === 'errorSendEmail')) ? '#F42C4F' : '#BFC4C9' ;
 
     const {register,handleSubmit,formState: { errors} ,watch } = useForm({
@@ -31,7 +31,7 @@ const ForgotPassForm = () => {
     const onSubmit = (e)  => {
         e.preventDefault();
         if(!inpurErrorOne && data.email){
-            // forgotPasswordUser(watch())
+            forgotPasswordUser(watch());
         }else {
             setInpurErrorOne(true)
         }
