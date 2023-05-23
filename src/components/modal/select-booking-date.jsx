@@ -16,7 +16,7 @@ export const ModalSelectBookingDate = () => {
     const selectBookingData = useSelector(state => state.modal.selectBookingData)
 
     const onSubmit = () => {
-        createBookBooking()
+        createBookBooking(selectBookingData)
     }
 
     useEffect(() => {

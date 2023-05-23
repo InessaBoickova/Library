@@ -75,7 +75,7 @@ export const NavMenu = () => {
 
     const onExit = () => {
         localStorage.removeItem('token');
-        // localStorage.removeItem('user');
+        localStorage.removeItem('user');
         dispatch(setAuthorizationResult(''))
     }
    

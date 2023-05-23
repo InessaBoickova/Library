@@ -10,7 +10,7 @@ export const BreadCrumbs = () => {
     const book = useSelector(state=> state.book.book);
     const error = useSelector(state=> state.book.error);
     const navigate = useNavigate();
-    const {getBooksList} = useBooksServices()
+    const {getBooksList} = useBooksServices();
     const goBack = () => {
         navigate(-1);
         dispatch(setBooksList([]))

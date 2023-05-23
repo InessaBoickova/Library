@@ -14,14 +14,14 @@ import { SwiperSlider } from '../slider/slider';
 import { Spinner } from '../spinner/spinner';
 
 export const Book = () => {
-    const dispatch = useDispatch()
-    // const {id : idUser} = JSON.parse(localStorage.getItem('user'));
+    const dispatch = useDispatch();
+    const {id : idUser} = JSON.parse(localStorage.getItem('user'));
     const {setStar,setBookingButtonStyles} = useHooks ();
     
     const {bookId} = useParams();
     const {getBook} = useBooksServices();
     const [showReviewsList , setshowReviewsList] = useState(true);
-    const {setOpenModal} = useHooks()
+    const {setOpenModal} = useHooks();
 
     const loading = useSelector(state => state.book.loading);
     const book = useSelector(state => state.book.book);
@@ -58,7 +58,7 @@ export const Book = () => {
             )
         }) : null
 
-        // const repeatComment =  reviewsList && reviewsList.find(i => +i.key === idUser )
+        const repeatComment =  reviewsList && reviewsList.find(i => +i.key === idUser )
         const actionParamsBtn = (booking) ?  setOpenModalChangeBookingData : setOpenModalSelectBookingData ;
         const activeBookData = {idBook:id ,bookingId: (booking)? booking.id : null , dateOrder: (booking)? booking.dateOrder : null}
 
@@ -82,7 +82,7 @@ export const Book = () => {
                          <h3>{authors}</h3>
                          <button className={classBtn} type='button'
                                 onClick={()=>onButtonClick()}
-                                disabled = {(delivery && booking) ? true : false}>
+                                disabled = {((delivery && booking) || (booking && booking.customerId !== idUser) || (delivery && delivery.recipientId !== idUser)) ? true : false}>
                                 {btnTitle}
                         </button>
                          <div className="book__main-block-descr-about">
@@ -144,8 +144,8 @@ export const Book = () => {
                     <div>
                         {showReviewsList && comments ?  reviewsList : null}
 
-                        <button 
-                            type='button' className='book__reviews-button' 
+                        <button disabled={repeatComment? true : false}
+                            type='button' className={repeatComment? 'book__reviews-button-disabled' : 'book__reviews-button' }
                             onClick={()=> setOpenModal(setOpenModalReviewBook)}> 
                             оценить книгу 
                         </button>

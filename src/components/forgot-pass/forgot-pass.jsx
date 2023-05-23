@@ -11,12 +11,12 @@ import { useIdentificationServices } from '../../services/identification'
 import { ForgotPassNotify } from './forgot-pass-notify'
 
 const ForgotPassForm = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const forgotPassResult = useSelector(state => state.identification.forgotPassResult);
    
     const [activeInputOne , setActiveInputOne] = useState ('forgot-pass__form-wrapper');
     const [inpurErrorOne,setInpurErrorOne] = useState(false);
-    const {forgotPasswordUser} = useIdentificationServices()
+    const {forgotPasswordUser} = useIdentificationServices();
     const borderOneColor = (inpurErrorOne || (forgotPassResult === 'errorSendEmail')) ? '#F42C4F' : '#BFC4C9' ;
 
     const {register,handleSubmit,formState: { errors} ,watch } = useForm({
@@ -33,7 +33,7 @@ const ForgotPassForm = () => {
         if(!inpurErrorOne && data.email){
             forgotPasswordUser(watch());
         }else {
-            setInpurErrorOne(true)
+            setInpurErrorOne(true);
         }
     }
 

@@ -15,7 +15,7 @@ export const BookList = () => {
   const dispatch = useDispatch()
     const raiseFilter = useSelector(state => state.filters.raiseFilter);
     const valueInput = useSelector((state)=> state.filters.valueInput);
-    // const {id : idUser} = JSON.parse(localStorage.getItem('user'));
+    const {id : idUser} = JSON.parse(localStorage.getItem('user'));
 
     const filteredBookListSelector = createSelector(
       (state) => state.filters.activeFilter,
@@ -109,7 +109,7 @@ export const BookList = () => {
                   <button className={classBtn}
                         type='button' 
                         onClick={()=>onButtonClick()}
-                        disabled = {(booking  || (!delivery && !booking))
+                        disabled = {((booking && booking.customerId === idUser) || (!delivery && !booking))
                                       ? false : true}> 
                         {btnTitle}
                   </button>

@@ -13,8 +13,8 @@ export const ModalReviewBook = () => {
     const ref = useRef(null);
     const refOverlay = useRef(null);
     const params = useParams();
-    // const user = JSON.parse(localStorage.getItem('user'));
-    // const {id} = user
+    const user = JSON.parse(localStorage.getItem('user'));
+    const {id} = user
     const {submitBookReview} = useActionUserBook();
     const {setCloseModal} = useHooks();
 
@@ -37,16 +37,16 @@ export const ModalReviewBook = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        // const data = {
-        //    data:{
-        //     rating: starActive,
-        //     text: valueReview,
-        //     book: params.bookId,
-        //     user: id 
-        //    }
-        // }
+        const data = {
+           data:{
+            rating: starActive,
+            text: valueReview,
+            book: params.bookId,
+            user: id 
+           }
+        }
 
-        submitBookReview();
+        submitBookReview(data);
     }
 
     useEffect(() => {

@@ -12,7 +12,7 @@ export const AuthorizationNotify = () => {
             <p className="identification-notify__descr"> Что-то пошло не так. Попробуйте ещё раз </p>
 
             <Link to='/auth' className="identification-notify__button" 
-                     onClick={()=> dispatch(setAuthorizationResult(''))}>
+                    onClick={()=> dispatch(setAuthorizationResult(''))}>
                 повторить
             </Link>
 

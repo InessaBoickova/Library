@@ -13,7 +13,7 @@ import { ForgotPassNotify } from './forgot-pass-notify'
 // eslint-disable-next-line complexity
 const UpdatePasswordForm = () => {
     const location = useLocation();
-    // const {UpdatePasswordUser} = useIdentificationServices()
+    const {UpdatePasswordUser} = useIdentificationServices();
    
     const [activeInputOne , setActiveInputOne] = useState ('identification__form-wrapper');
     const [activeInputTwo , setActiveInputTwo] = useState ('identification__form-wrapper');
@@ -47,7 +47,7 @@ const UpdatePasswordForm = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         if (data.password === data.passwordConfirmation){
-            // UpdatePasswordUser({...data,  'code': location.search.substring(6)})
+            UpdatePasswordUser({...data,  'code': location.search.substring(6)})
         }
     }
  

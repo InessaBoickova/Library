@@ -18,7 +18,7 @@ export const SwiperSlider =  ({images}) => {
   }
 
 
-  const imageList = images.map((item)=> <SwiperSlide key={Math.random()}><img src={item.url}alt='img'/> </SwiperSlide>)
+  const imageList = images.map((item)=> <SwiperSlide key={Math.random()}><img src={item.url} alt='img'/> </SwiperSlide>)
   
   return (
     <div className="swiper">

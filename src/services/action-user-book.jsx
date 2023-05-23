@@ -10,166 +10,137 @@ import axiosApi from './interceptors';
 export const useActionUserBook = () => {
     const activeBookId = useSelector(state => state.modal.activeBookId);
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    const {id} =  user;
     const dispatch = useDispatch();
     const {getBook,getBooksList} = useBooksServices();
-    const {setCloseModal} = useHooks();
+    const {setCloseModal,closeHintModal} = useHooks();
     const {bookId} = useParams();
 
-    const BASE_LINK = 'https://strapi.cleverland.by';
+    const BASE_LINK = 'https://library-cleverland-2jfze.ondigitalocean.app';
 
     const submitBookReview =  (data) => {
-        // dispatch( setLoading(true))
+        dispatch( setLoading(true))
 
-        // axiosApi.post(`${BASE_LINK}/api/comments`, data)
-        //     .then (res => { 
-        //         if(bookId){
-        //             getBook(bookId);
-        //         }
+        axiosApi.post(`${BASE_LINK}/api/comments`, data)
+            .then (res => { 
+                dispatch(setStatusSelectBookingData('successfulBookReview'));
+                closeHintModal(setStatusSelectBookingData);
+
+                if(bookId){
+                    getBook(bookId);
+                }
         
-        //         return res;
-        //     })
-        //     .catch(err => {
-        //         dispatch(setStatusSelectBookingData('errorBookReview'))
+                return res;
+            })
+            .catch(err => {
+                dispatch(setStatusSelectBookingData('errorBookReview'));
 
-        //         return err;
-        //     })
-        //     .finally( () => {
-        //         dispatch(setLoading(false));
-        //         setCloseModal(setOpenModalReviewBook);
-        //     });
-        dispatch(setStatusSelectBookingData('successfulBookReview'))
-        setCloseModal(setOpenModalReviewBook);
-        setTimeout(()=> {
-            dispatch(setStatusSelectBookingData(null))
-        },4000)
+                return err;
+            })
+            .finally( () => {
+                dispatch(setLoading(false));
+                setCloseModal(setOpenModalReviewBook);
+            });
     }
 
     const createBookBooking = (date) => {
-        // const datas = {
-        //     data:{
-        //         order: true,
-        //         customer: id,
-        //         book: (activeBookId) && activeBookId.idBook,
-        //         dateOrder: date
-        //     }
-        // }
+        const datas = {
+            data:{
+                order: true,
+                customer: id,
+                book: (activeBookId) && activeBookId.idBook,
+                dateOrder: date
+            }
+        }
 
-        // dispatch( setLoading(true))
+        dispatch( setLoading(true));
 
-        // axiosApi.post(`${BASE_LINK}/api/bookings`, datas )
-        //     .then (res => {
-        //         dispatch(setStatusSelectBookingData('successfulBookBooking'))
-        //         setTimeout(()=> {
-        //             dispatch(setStatusSelectBookingData(null))
-        //         },4000)
-        //         if(bookId){
-        //             getBook(bookId);
-        //         }else {
-        //             getBooksList()
-        //         }
-                
-        //         return res;
-        //     })
-        //     .catch(err => {
-        //         dispatch(setStatusSelectBookingData('errorBookBooking'))
-                
-        //         return err;
-        //     })
-        //     .finally( () => {
-        //         dispatch(setLoading(false));
-        //         setCloseModal(setOpenModalSelectBookingData);
-               
-        //     });
+        axiosApi.post(`${BASE_LINK}/api/bookings`, datas )
+            .then (res => {
+                dispatch(setStatusSelectBookingData('successfulBookBooking'));
+                closeHintModal(setStatusSelectBookingData);
+                if(bookId){
+                    getBook(bookId);
+                }else {
+                    getBooksList();
+                }
 
-        dispatch(setStatusSelectBookingData('successfulBookBooking'))
-
-        setTimeout(()=> {
-             dispatch(setStatusSelectBookingData(null))
-        },4000)
-
-        setCloseModal(setOpenModalSelectBookingData);
+                return res;
+            })
+            .catch(err => {
+                dispatch(setStatusSelectBookingData('errorBookBooking'));
+             
+                return err;
+            })
+            .finally(() => {
+                dispatch(setLoading(false));
+                setCloseModal(setOpenModalSelectBookingData);
+            });
     }
 
     const editBookBooking = (date) => {
-        // const datas = {
-        //     data:{
-        //         order: true,
-        //         customer: id,
-        //         book: (activeBookId) && activeBookId.idBook,
-        //         dateOrder: date
-        //     }
-        // }
+        const datas = {
+            data:{
+                order: true,
+                customer: id,
+                book: (activeBookId) && activeBookId.idBook,
+                dateOrder: date
+            }
+        }
 
-        // dispatch( setLoading(true))
+        dispatch(setLoading(true));
 
-        // axiosApi.put(`${BASE_LINK}/api/bookings/${activeBookId.bookingId}`, datas )
-        //     .then (res => {
-        //         dispatch(setStatusChangeBookingData('successfulChangeOfBookingDate'))
-        //         setTimeout(()=> {
-        //             dispatch(setStatusChangeBookingData(null))
-        //         },4000)
+        axiosApi.put(`${BASE_LINK}/bookings/${activeBookId.bookingId}`, datas )
+        .then (res => {
+            dispatch(setStatusChangeBookingData('successfulChangeOfBookingDate'));
+            closeHintModal(setStatusChangeBookingData);
+            
+            if(bookId){
+                getBook(bookId);
+            }else {
+                getBooksList();
+            }
 
-        //         if(bookId){
-        //             getBook(bookId);
-        //         }else {
-        //             getBooksList()
-        //         }
-               
-        //         return res;
-        //     })
-        //     .catch(err => {
-        //         dispatch(setStatusChangeBookingData('errorChangeOfBookingDate'))
-                
-        //         return err;
-        //     })
-        //     .finally( () => {
-        //         dispatch(setLoading(false));
-        //         setCloseModal(setOpenModalChangeBookingData);
-               
-        //     });
+            return res;
+        })
+        .catch(err => {
+            dispatch(setStatusChangeBookingData('errorChangeOfBookingDate'));
 
-        dispatch(setStatusChangeBookingData('successfulChangeOfBookingDate'))
-        setTimeout(()=> {
-            dispatch(setStatusChangeBookingData(null))
-        },4000)
-        setCloseModal(setOpenModalChangeBookingData);
+            return err;
+        })
+        .finally( () => {
+            dispatch(setLoading(false));
+            setCloseModal(setOpenModalChangeBookingData);
+         });
     }
 
     const deleteBookBooking = () => {
-        // dispatch( setLoading(true))
+        dispatch( setLoading(true));
 
-        // axiosApi.delete(`${BASE_LINK}/api/bookings/${activeBookId.bookingId}` )
-        //     .then (res => {
-        //         dispatch(setStatusChangeBookingData('successfulBookCancellation'))
-        //         setTimeout(()=> {
-        //             dispatch(setStatusChangeBookingData(null))
-        //         }, 4000)
+        axiosApi.delete(`${BASE_LINK}/bookings/${activeBookId.bookingId}` )
+            .then (res => {
+                dispatch(setStatusChangeBookingData('successfulBookCancellation'));
+                closeHintModal(setStatusChangeBookingData);
 
-        //         if(bookId){
-        //             getBook(bookId);
-        //         }else {
-        //             getBooksList()
-        //         }
+                if(bookId){
+                    getBook(bookId);
+                }else {
+                    getBooksList();
+                }
                 
-        //         return res;
-        //     })
-        //     .catch(err => {
-        //         dispatch(setStatusChangeBookingData('errorBookCancellation'))
+                return res;
+            })
+            .catch(err => {
+                dispatch(setStatusChangeBookingData('errorBookCancellation'));
 
-        //         return err;
-        //     })
-        //     .finally( () => {
-        //         dispatch(setLoading(false));
-        //         setCloseModal(setOpenModalChangeBookingData);
+                return err;
+            })
+            .finally( () => {
+                dispatch(setLoading(false));
+                setCloseModal(setOpenModalChangeBookingData);
                 
-        //     });
-
-
-        dispatch(setStatusChangeBookingData('successfulBookCancellation'));
-        setTimeout(()=> {
-            dispatch(setStatusChangeBookingData(null))
-        }, 4000)
-        setCloseModal(setOpenModalChangeBookingData);
+            });
         }
 
     return {submitBookReview,createBookBooking,editBookBooking,deleteBookBooking}

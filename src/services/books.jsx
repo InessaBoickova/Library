@@ -1,9 +1,6 @@
 import { useCallback } from 'react';
 import {useDispatch,useSelector } from 'react-redux';
 
-import bookExact from '../data/book-exact.json'
-import books from '../data/books.json'
-import categories from '../data/categories.json'
 import { openNavMenu,setBook,setBooksList,setError,setListOfGenres,setLoading } from '../redux/actions/actions';
 
 import axiosApi from './interceptors';
@@ -13,21 +10,19 @@ export const useBooksServices = () => {
     const dispatch = useDispatch();
 
     const onRequest = useCallback (
-       
         (action,ref) => {
             dispatch(setLoading(true));
             axiosApi.get(ref)
             .then((response) =>  {
                   if(navMenuOpen){
-                    dispatch(openNavMenu())
+                    dispatch(openNavMenu());
                 }
-                dispatch(action(response.data))
+                dispatch(action(response.data));
             })
             .catch(()=> {
                 dispatch(setError(true));
             })
             .finally( () => {
-                
                 dispatch(setLoading(false));
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,17 +30,14 @@ export const useBooksServices = () => {
     );
 
     const getBooksList = () => {
-    //    onRequest(setBooksList,'api/books');
-        dispatch(setBooksList(books.books))
+        onRequest(setBooksList,'api/books');
     }
 
     const getBook = (id) => {
-        // onRequest(setBook,`api/books/${id}`)
-       dispatch(setBook(bookExact.bookExact.find((i) => i.id === +id)))
+        onRequest(setBook,`api/books/${id}`);
     }
     const getListOfGenres = () => {
-        // onRequest(setListOfGenres,'api/categories');
-        dispatch(setListOfGenres(categories.categories))
+        onRequest(setListOfGenres,'api/categories');
     }
 
     return {getBooksList,getListOfGenres,getBook}

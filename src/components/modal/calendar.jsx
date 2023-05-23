@@ -76,7 +76,6 @@ export const Calendar = () => {
   
     const onPrevMonth = () => setDateActive(new Date(dateActive.getFullYear(), dateActive.getMonth() - 1));
     const onNextMonth = () => setDateActive(new Date(dateActive.getFullYear(), dateActive.getMonth() + 1));
-    // const onDayClick = (day) => setSelectedDay(day);
 
     const createElem = (arr) => {
         const lastDay = createData(new Date(dateActive.getFullYear(),dateActive.getMonth() + 1 ,0,0))

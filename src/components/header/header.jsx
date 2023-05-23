@@ -13,8 +13,8 @@ export const Header = () => {
         const dispatch = useDispatch();
         const navMenuOpen = useSelector(state=> state.listMenu.navMenuOpen);
 
-        // const user = JSON.parse(localStorage.getItem('user'));
-        // const {username} = user
+        const user = JSON.parse(localStorage.getItem('user'));
+        const {username} = user;
 
         const disableScrolling = ()=> {
                 const x = window.scrollX;
@@ -39,8 +39,8 @@ export const Header = () => {
 
         const onExit = () => {
                 localStorage.removeItem('token');
-                // localStorage.removeItem('user');
-                // dispatch(setAuthorizationResult(''))
+                localStorage.removeItem('user');
+                dispatch(setAuthorizationResult(''))
         }
         
         return (
@@ -65,7 +65,7 @@ export const Header = () => {
                                         </div>
 
                                         <button className="header__user" type='button' onClick={()=> setShowPanel(!showPanel)}>
-                                                <h3>Привет, Иван</h3>
+                                                <h3>Привет, {username}</h3>
                                                 <img src={userImg} alt="user" />
                                         </button>
 

@@ -24,7 +24,7 @@ export const ModalChangeBookingDate = () => {
     }
 
     const onSubmitDelete = () => {
-        deleteBookBooking()
+        deleteBookBooking(selectBookingData)
      }
 
     useEffect(() => {

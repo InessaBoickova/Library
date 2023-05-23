@@ -31,25 +31,25 @@ export const ForgotPassNotify = () => {
     }
     const goBack = (link)=> {
         if(status === 'errorSaveData'){
-            dispatch(setForgotPassResult(''))
+            dispatch(setForgotPassResult(''));
         }
-        navigate(link)
+        navigate(link);
     }
 
     const elem = () => {
         if(status !== 'error'){
-         const {title,descr,textBtn,link} = data[status];
+            const {title,descr,textBtn,link} = data[status];
 
-         return (
-             <div className="identification-notify">
-                 <h2 className="identification-notify__title"> {title}</h2>
-                 <p className="identification-notify__descr"> {descr} </p>
-                 {textBtn && <button to={link} type='button' className="identification-notify__button" onClick={()=> goBack(link)}> {textBtn} </button>}
-             </div>
-             )
-         }
+            return (
+                <div className="identification-notify">
+                    <h2 className="identification-notify__title"> {title}</h2>
+                    <p className="identification-notify__descr"> {descr} </p>
+                    {textBtn && <button to={link} type='button' className="identification-notify__button" onClick={()=> goBack(link)}> {textBtn} </button>}
+                </div>
+            )
+        }
  
-         return null;
+        return null;
      }
 
     return (

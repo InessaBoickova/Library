@@ -9,11 +9,11 @@ import {setAuthorizationResult,setForgotPassResult,
 export const useIdentificationServices = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const BASE_LINK = 'https://strapi.cleverland.by';
+    const BASE_LINK = 'https://library-cleverland-2jfze.ondigitalocean.app';
 
     // eslint-disable-next-line arrow-body-style
     const registrationUser =  (data) => {
-        dispatch( setLoading(true))
+        dispatch( setLoading(true));
          axios.post(`${BASE_LINK}/api/auth/local/register`, data)
             .then (res => {
                 dispatch(setRegistrationResult('success'));
@@ -22,33 +22,31 @@ export const useIdentificationServices = () => {
             })
             .catch(err => {
                 // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                // (err.response.status === 400) 
-                //     ? dispatch(setRegistrationResult('error400'))  
-                //     : dispatch(setRegistrationResult('error'))
-
-                dispatch(setRegistrationResult('success'));
+                (err.response.status === 400) 
+                    ? dispatch(setRegistrationResult('error400'))  
+                    : dispatch(setRegistrationResult('error'))
 
                 return err;
             })
-            .finally( () => {
+            .finally(() => {
                 dispatch(setLoading(false));
             });
     }
 
     const forgotPasswordUser = (data) => {
-        dispatch( setLoading(true))
+        dispatch( setLoading(true));
         
         axios.post(`${BASE_LINK}/api/auth/forgot-password`, data)
         
             .then (res => {
-                dispatch(setForgotPassSuccess(true))
+                dispatch(setForgotPassSuccess(true));
                 dispatch(setForgotPassResult('successSendEmail')); 
 
                 return res;
             })
             .catch(err => {
                 // dispatch(setForgotPassResult('errorSendEmail'))
-                dispatch(setForgotPassSuccess(true))
+                dispatch(setForgotPassSuccess(true));
                 dispatch(setForgotPassResult('successSendEmail')); 
 
                 return err;
@@ -59,7 +57,7 @@ export const useIdentificationServices = () => {
     }
 
     const UpdatePasswordUser = (data) => {
-        dispatch(setLoading(true))
+        dispatch(setLoading(true));
         
         axios.post(`${BASE_LINK}/api/auth/reset-password`, data)
             .then (res => {
@@ -69,9 +67,7 @@ export const useIdentificationServices = () => {
 
             })
             .catch(err => {
-                // dispatch(setForgotPassResult('errorSaveData')); 
-
-                dispatch(setForgotPassResult('successSaveNewData'));
+                dispatch(setForgotPassResult('errorSaveData')); 
 
                 return err;
             })
@@ -81,14 +77,13 @@ export const useIdentificationServices = () => {
     }
 
     const authorizationUser =  (data) => {
-        dispatch(setLoading(true)) 
+        dispatch(setLoading(true));
         
         axios.post(`${BASE_LINK}/api/auth/local`, data)
         
             .then (res => {
                 localStorage.setItem('token', res.data.jwt);
                 localStorage.setItem('user', JSON.stringify(res.data.user)); 
-                        
                 navigate('/books');
             })
             .catch(err => {
