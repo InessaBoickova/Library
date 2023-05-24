@@ -22,6 +22,9 @@
         &-link {
             margin-top: 20px;
             @include fz12();
+            &:hover {
+                color: #F83600;
+            }
         }
         &-help {
             @include fz12();
@@ -55,7 +58,8 @@
         &-label {
             @include fz14(0.1px,$main-text-color,18px);
             position: absolute;
-            transition: top 0.2s ease-in-out , font-size 0.2s ease-in-out;
+            transition: top 0.2s ease-in-out , 
+            font-size 0.2s ease-in-out;
             top: 19px;
             left: 12px;
         }
@@ -63,6 +67,9 @@
         &-submit {
             @include button(100%,52px,30px,16px);
             margin-top: 32px;
+            &:hover {
+                background: #F83600;
+            }
             &-block {
                 @include button(100%,52px,30px,16px);
                 margin-top: 32px;
@@ -103,6 +110,10 @@
             align-items: center;
             font-weight: 600;
             text-transform: uppercase; 
+            transition: all 0.2ms;
+            &:hover {
+                color: #F83600;
+            }
         }
         &-icon {
             margin-left: 15px;

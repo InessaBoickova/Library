@@ -51,10 +51,6 @@
             margin: 52px 0  30px -9px;
            }
         }
-        &__btn {
-            width: 50px;
-            background: #F9F9FA;
-        }
     }
     .visible {
         position: fixed;
@@ -79,9 +75,6 @@
                 &-mt {
                     margin: 42px 0;
                 }
-            }
-            &__btn {
-                right: 200px;
             }
         }
     }
@@ -109,9 +102,6 @@
     .visible {
         left: 16px;
         width: 288px;
-        .menu__btn {
-            right: 14px;
-        }
     }
 }
 

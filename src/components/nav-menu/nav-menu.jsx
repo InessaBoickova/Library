@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import { createSelector } from 'reselect';
 
 import {hideListMenu,openNavMenu,setActiveFilter,setAuthorizationResult,showListMenu} from '../../redux/actions/actions'
-import close_vector from '../../resources/icon/close_vector.svg';
-import raise_vector from '../../resources/icon/raise_vector.svg';
+import close_vector from '../../resources/icon/close_vector.svg'
+import raise_vector from '../../resources/icon/raise_vector.svg'
 import { useBooksServices } from '../../services/books';
 
 export const NavMenu = () => {
@@ -102,7 +102,7 @@ export const NavMenu = () => {
                     <NavLink to='/books' className={({isActive}) => isActive ? 'active_link' : 'menu__link-main'}>
                         Витрина книг
                     </NavLink> 
-                    <button type='button' onClick={()=> dispatch(showListMenu())} className = 'menu__btn' >
+                    <button type='button'  className = 'menu__btn' onClick={()=> dispatch(showListMenu())}>
                         <img  src={showListBook ? close_vector :  raise_vector} alt="vector" 
                             className='menu__vector'/>
                     </button>

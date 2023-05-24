@@ -79,6 +79,10 @@
             &__wrapper {
                 padding: 0px 0px 0px 8px;
             }
+            &__img {
+                display: block;
+                margin: 0 auto;
+            }
         }
     }   
 }
@@ -96,8 +100,8 @@
                 width: 70px;
             }
             &__title {
-                font-size: 14px;
-                line-height: 18px;
+                font-size: 12px;
+                line-height: 16px;
             }
             &__subtitle {
                 margin-top: 1px;
@@ -105,14 +109,20 @@
                 line-height: 18px;
             }
             &__score {
-                margin-top: 15px;
+                margin-top: 0px;
+                h2 {
+                    margin: 0;
+                }
             }
             &__button {
+                bottom: 5px;
                 width: 186px;
                 &-booked { 
+                    bottom: 5px;
                     width: 186px;
                 }
                 &-busy {
+                    bottom: 5px;
                     width: 186px;
                 }
             }
@@ -128,7 +138,7 @@
                 height: 54px;
                 margin-top: 18px;
                 h3 {
-                    font-size: 14px;
+                    font-size: 12px;
                 }
             }
             &__subtitle {

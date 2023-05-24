@@ -39,6 +39,9 @@
             position: absolute;
             bottom: 17px;
             right: 10px;
+            &:hover {
+                background: #F83600 ;
+            }
             &-booked {
                 @include button(174px,40px,20px,12px);
                 position: absolute;
@@ -59,6 +62,9 @@
                 border: 1px solid #BFC4C9;
                 line-height: 18px;
                 color: $main-text-color;
+                &:hover {
+                    background: #e0dede ;
+                }
             }
         }
     } 
@@ -101,6 +107,9 @@
             margin: 19px 0 16px 0;
             @include button(166px , 40px ,20px,12px);
             margin-left: 4px;
+            &:hover {
+                background: #F83600 ;
+            }
             &-booked {
                 margin: 19px 0 16px 0;
                 @include button(166px,40px,20px,12px);
@@ -119,6 +128,9 @@
                 border: 1px solid #BFC4C9;
                 line-height: 18px;
                 color: $main-text-color;
+                &:hover {
+                    background: #e0dede ;
+                }
             }
         }
     }

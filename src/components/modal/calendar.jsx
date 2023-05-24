@@ -131,8 +131,8 @@ export const Calendar = () => {
                             {yearsMonthNames.map((item,index) => <option key={item} value={index}>{item}</option>)}
                 </select>
 
-                    <button type="button" onClick={()=> onPrevMonth()}>{'<'}</button>
-                    <button type="button" onClick={()=> onNextMonth()}>{'>'}</button>
+                <button type="button" onClick={()=> onPrevMonth()}>{'<'}</button>
+                <button type="button" onClick={()=> onNextMonth()}>{'>'}</button>
                
             </div>
 

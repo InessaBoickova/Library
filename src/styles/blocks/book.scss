@@ -5,6 +5,9 @@
     padding-bottom: 41px;
     &__button {
         @include button();
+        &:hover {
+            background: #F83600 ;
+        }
         &-booked {
             @include button();
             cursor: default;
@@ -19,6 +22,9 @@
             border: 1px solid #BFC4C9;
             line-height: 18px;
             color: $main-text-color;
+            &:hover {
+                background: #e0dede ;
+            }
         }
     }
     &__main-block {
@@ -116,9 +122,13 @@
         }
         &-button {
             @include button();
+            &:hover {
+                background: #F83600 ;
+            }
             &-disabled {
                 @include button();
                 background: #EBEBEB;
+                cursor: default;
             }
         }
         &-card {

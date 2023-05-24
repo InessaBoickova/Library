@@ -23,5 +23,8 @@
         align-items: center;
         justify-content: center;
         @include button(410px,52px);
+        &:hover {
+            background: #F83600 ;
+        }
     }
 }

@@ -16,8 +16,12 @@
         font-weight: 600;
         display: flex;
         text-transform: uppercase;
+      
         &-icon {
             margin-right: 15px;
+        }
+        &:hover {
+            color: #F83600;
         }
     }
     &__form {
@@ -69,6 +73,9 @@
                 background: #EBEBEB;
                 text-align: center;
             }
+            &:hover {
+                background: #F83600;
+            }
         }
     }
     &__info {
@@ -90,6 +97,9 @@
             align-items: center;
             font-weight: 600;
             text-transform: uppercase; 
+            &:hover {
+                color: #F83600;
+            }
         }
         &-icon {
             margin-left: 15px;

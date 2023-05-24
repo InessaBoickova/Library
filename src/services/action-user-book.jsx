@@ -20,12 +20,11 @@ export const useActionUserBook = () => {
     const BASE_LINK = 'https://library-cleverland-2jfze.ondigitalocean.app';
 
     const submitBookReview =  (data) => {
-        dispatch( setLoading(true))
+        dispatch(setLoading(true))
 
         axiosApi.post(`${BASE_LINK}/api/comments`, data)
             .then (res => { 
                 dispatch(setStatusSelectBookingData('successfulBookReview'));
-                closeHintModal(setStatusSelectBookingData);
 
                 if(bookId){
                     getBook(bookId);
@@ -41,6 +40,7 @@ export const useActionUserBook = () => {
             .finally( () => {
                 dispatch(setLoading(false));
                 setCloseModal(setOpenModalReviewBook);
+                closeHintModal(setStatusSelectBookingData);
             });
     }
 
@@ -59,7 +59,6 @@ export const useActionUserBook = () => {
         axiosApi.post(`${BASE_LINK}/api/bookings`, datas )
             .then (res => {
                 dispatch(setStatusSelectBookingData('successfulBookBooking'));
-                closeHintModal(setStatusSelectBookingData);
                 if(bookId){
                     getBook(bookId);
                 }else {
@@ -76,6 +75,7 @@ export const useActionUserBook = () => {
             .finally(() => {
                 dispatch(setLoading(false));
                 setCloseModal(setOpenModalSelectBookingData);
+                closeHintModal(setStatusSelectBookingData);
             });
     }
 
@@ -94,7 +94,6 @@ export const useActionUserBook = () => {
         axiosApi.put(`${BASE_LINK}/bookings/${activeBookId.bookingId}`, datas )
         .then (res => {
             dispatch(setStatusChangeBookingData('successfulChangeOfBookingDate'));
-            closeHintModal(setStatusChangeBookingData);
             
             if(bookId){
                 getBook(bookId);
@@ -112,6 +111,7 @@ export const useActionUserBook = () => {
         .finally( () => {
             dispatch(setLoading(false));
             setCloseModal(setOpenModalChangeBookingData);
+            closeHintModal(setStatusChangeBookingData);
          });
     }
 
@@ -121,7 +121,6 @@ export const useActionUserBook = () => {
         axiosApi.delete(`${BASE_LINK}/bookings/${activeBookId.bookingId}` )
             .then (res => {
                 dispatch(setStatusChangeBookingData('successfulBookCancellation'));
-                closeHintModal(setStatusChangeBookingData);
 
                 if(bookId){
                     getBook(bookId);
@@ -139,7 +138,7 @@ export const useActionUserBook = () => {
             .finally( () => {
                 dispatch(setLoading(false));
                 setCloseModal(setOpenModalChangeBookingData);
-                
+                closeHintModal(setStatusChangeBookingData);
             });
         }
 
