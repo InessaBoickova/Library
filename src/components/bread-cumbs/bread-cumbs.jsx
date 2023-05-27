@@ -1,8 +1,7 @@
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { setBooksList } from '../../redux/slice/book-slice';
-import { useBooksServices } from '../../services/books';
+import { getBooksList,setBooksList  } from '../../redux/slice/book-slice';
 
 export const BreadCrumbs = () => {
     const dispatch = useDispatch();
@@ -10,11 +9,10 @@ export const BreadCrumbs = () => {
     const book = useSelector(state=> state.book.book);
     const error = useSelector(state=> state.book.error);
     const navigate = useNavigate();
-    const {getBooksList} = useBooksServices();
-    const goBack = () => {
+    const setBack = () => {
         navigate(-1);
         dispatch(setBooksList([]))
-        getBooksList();
+        dispatch(getBooksList());
     }
 
     return (
@@ -22,7 +20,7 @@ export const BreadCrumbs = () => {
             <div className="container">
                 <div className="bread-cumbs__wrapper">
                     <div className='bread-cumbs__text'> 
-                    <button type='button' className='bread-cumbs__button' onClick={()=> goBack()}> 
+                    <button type='button' className='bread-cumbs__button' onClick={()=> setBack()}> 
                         {activeFilter.trim()}
                     </button>
                         <span>

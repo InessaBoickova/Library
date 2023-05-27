@@ -1,6 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+/*eslint-disable*/
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+import { useIdentificationServices } from '../../services/identification';
 
 const initialState = {
+    loadingIdentification: false,
     registrationStep: 1,
     registrationData: {},
     registrationResult: '',
@@ -11,33 +15,96 @@ const initialState = {
     authorizationSuccess: false,
 }
 
+const identificationRequest = useIdentificationServices();
+
+const authorizationUser = createAsyncThunk (
+    'identification/authorizationUser',
+    (data) =>  identificationRequest('/api/auth/local', data)  
+);
+
+const registrationUser = createAsyncThunk (
+    'identification/registrationUser',
+    (data) =>  identificationRequest('/api/auth/local/register', data)  
+);
+
+const forgotPasswordUser = createAsyncThunk (
+    'identification/forgotPasswordUser',
+    (data) =>  identificationRequest('/api/auth/forgot-password', data)  
+);
+
+const updatePasswordUser = createAsyncThunk (
+    'identification/updatePasswordUser',
+    (data) =>  identificationRequest('/api/auth/reset-password', data)  
+);
+
 const identificationSlice = createSlice({
     name: 'identification',
     initialState,
-    // eslint-disable-next-line no-param-reassign
     reducers: {
-        // eslint-disable-next-line no-param-reassign
-        setRegistrationStep: (state,action) => { state.registrationStep = action.payload},
-        // eslint-disable-next-line no-param-reassign
-        setRegistrationData: (state,action) => { state.registrationData = {...state.registrationData,... action.payload}},
-        // eslint-disable-next-line no-param-reassign
-        setRegistrationResult: (state,action) => {  state.registrationResult = action.payload },
-        // eslint-disable-next-line no-param-reassign
-        setRegistrationSuccess: (state,action) => {  state.registrationSuccess = action.payload},
-        // eslint-disable-next-line no-param-reassign
-        setForgotPassResult: (state,action) => { state.forgotPassResult = action.payload},
-        // eslint-disable-next-line no-param-reassign
-        setForgotPassSuccess: (state,action) => {  state.forgotPassSuccess = action.payload }, 
-        // eslint-disable-next-line no-param-reassign
-        setAuthorizationSuccess: (state,action) => {  state.authorizationSuccess = action.payload }, 
-        // eslint-disable-next-line no-param-reassign
-        setAuthorizationResult: (state,action) => {  state.authorizationResult = action.payload }, 
+        setRegistrationStep: (state,action) => { state.registrationStep = action.payload},    
+        setRegistrationData: (state,action) => { state.registrationData = {...state.registrationData,... action.payload}},     
+        setRegistrationResult: (state,action) => {  state.registrationResult = action.payload },     
+        setRegistrationSuccess: (state,action) => {  state.registrationSuccess = action.payload},    
+        setForgotPassResult: (state,action) => { state.forgotPassResult = action.payload},      
+        setAuthorizationResult: (state,action) => {  state.authorizationResult = action.payload },    
+    },
+
+    extraReducers: (builder) => {
+        builder    
+            .addCase(authorizationUser.pending , state => { state.loadingIdentification = !state.loadingIdentification})   
+            .addCase(authorizationUser.fulfilled , (state, action) => { 
+                localStorage.setItem('token', action.payload.data.jwt);
+                state.authorizationResult = 'fulfilled'
+                localStorage.setItem('user', JSON.stringify(action.payload.data.user)); 
+                state.loadingIdentification = !state.loadingIdentification;
+            })
+            .addCase(authorizationUser.rejected , (state, action) => {
+                
+                (action.error.message.match(/\d+/)[0] === 400)      
+                ?  state.authorizationResult = 'error400'     
+                :  state.authorizationResult = 'error'
+
+                state.loadingIdentification = !state.loadingIdentification;
+            })
+        
+            .addCase(registrationUser.pending, state => { state.loadingIdentification = !state.loadingIdentification})   
+            .addCase(registrationUser.fulfilled, state => { 
+                state.registrationResult = 'success';
+                state.loadingIdentification = !state.loadingIdentification;
+            }) 
+            .addCase(registrationUser.rejected, (state, action) => {       
+
+                (action.error.message.match(/\d+/)[0] === 400)             
+                ?  state.registrationResult = 'error400'           
+                :  state.registrationResult = 'error'
+
+                state.loadingIdentification = !state.loadingIdentification;
+            })        
+            .addCase(forgotPasswordUser.pending, state =>{state.loadingIdentification = !state.loadingIdentification})
+            .addCase(forgotPasswordUser.fulfilled, (state)=> {
+                state.forgotPassSuccess =  true ;
+                state.forgotPassResult = 'successSendEmail';
+                state.loadingIdentification = !state.loadingIdentification;
+            })
+            .addCase(forgotPasswordUser.rejected, (state,action) => {
+                state.forgotPassResult = 'errorSendEmail';
+                state.loadingIdentification = !state.loadingIdentification;
+            })
+            .addCase(updatePasswordUser.pending, state => {state.loadingIdentification = !state.loadingIdentification})
+            .addCase(updatePasswordUser.fulfilled, state => {
+                state.loadingIdentification = !state.loadingIdentification;
+                state.forgotPassResult = 'successSaveNewData';
+            })
+            .addCase (updatePasswordUser.rejected, (state)=> {
+                state.loadingIdentification = !state.loadingIdentification;
+                state.forgotPassResult = 'errorSaveData';
+        } )
     }
 });
 
 const {actions,reducer: identification} = identificationSlice;
-const {setRegistrationStep,setRegistrationData,setRegistrationResult,setRegistrationSuccess,setForgotPassResult,
-    setForgotPassSuccess,setAuthorizationSuccess,setAuthorizationResult} = actions;
+const {setRegistrationStep,setRegistrationData,setRegistrationSuccess,
+    setRegistrationResult,setAuthorizationResult,setForgotPassResult} = actions;
 
-export {setAuthorizationResult,setAuthorizationSuccess,setForgotPassSuccess,
-    setRegistrationStep,setRegistrationData,setRegistrationResult,setRegistrationSuccess,setForgotPassResult, identification};
+export { setRegistrationStep,setRegistrationData, authorizationUser,setRegistrationSuccess,setAuthorizationResult,
+    registrationUser,forgotPasswordUser,updatePasswordUser,setRegistrationResult,identification,setForgotPassResult};

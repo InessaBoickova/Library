@@ -4,14 +4,12 @@ import {useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import InputMask from 'react-text-mask';
 
-import { setRegistrationData,setRegistrationSuccess } from '../../redux/slice/identification-slice';
+import { registrationUser,setRegistrationData,setRegistrationSuccess } from '../../redux/slice/identification-slice';
 import arrow from '../../resources/icon/arrow.svg'
-import { useIdentificationServices } from '../../services/identification';
 
 export const StepThree = () => {
     const dispatch = useDispatch()
     const registrationData = useSelector(state=> state.identification.registrationData)
-    const {registrationUser} = useIdentificationServices()
     const [activeInputOne , setActiveInputOne] = useState ('identification__form-wrapper');
     const [activeInputTwo , setActiveInputTwo] = useState ('identification__form-wrapper');
     const [inpurErrorOne,setInpurErrorOne] = useState(false);
@@ -28,7 +26,7 @@ export const StepThree = () => {
     const email = register('email', { required: true, pattern: /^([A-Za-z0-9_\-.])+@([A-Za-z0-9.])+\.([A-Za-z]{2,4})$/})
 
     const onSubmit = (e) => {
-        const {phone,email } = data;
+        const {phone, email } = data;
 
         e.preventDefault();
          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -41,7 +39,7 @@ export const StepThree = () => {
         if(phone && !phone.includes('x') && !errors.email) {
             dispatch(setRegistrationSuccess(true))
             dispatch(setRegistrationData({phone,email}))
-            registrationUser({...registrationData, phone,email})
+            dispatch(registrationUser({...registrationData, phone,email}))
         }
     }
 

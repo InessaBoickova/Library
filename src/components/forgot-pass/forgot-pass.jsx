@@ -3,10 +3,9 @@ import { useForm } from 'react-hook-form'
 import { useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { setRegistrationStep } from '../../redux/slice/identification-slice'
+import { forgotPasswordUser,setRegistrationStep  } from '../../redux/slice/identification-slice'
 import arrow from '../../resources/icon/arrow.svg'
 import arraw_back from '../../resources/icon/arrow-back.svg'
-import { useIdentificationServices } from '../../services/identification'
 
 import { ForgotPassNotify } from './forgot-pass-notify'
 
@@ -16,7 +15,6 @@ const ForgotPassForm = () => {
    
     const [activeInputOne , setActiveInputOne] = useState ('forgot-pass__form-wrapper');
     const [inpurErrorOne,setInpurErrorOne] = useState(false);
-    const {forgotPasswordUser} = useIdentificationServices();
     const borderOneColor = (inpurErrorOne || (forgotPassResult === 'errorSendEmail')) ? '#F42C4F' : '#BFC4C9' ;
 
     const {register,handleSubmit,formState: { errors} ,watch } = useForm({
@@ -31,7 +29,7 @@ const ForgotPassForm = () => {
     const onSubmit = (e)  => {
         e.preventDefault();
         if(!inpurErrorOne && data.email){
-            forgotPasswordUser(watch());
+           dispatch(forgotPasswordUser(data));
         }else {
             setInpurErrorOne(true);
         }

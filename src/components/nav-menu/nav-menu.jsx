@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import {useEffect, useRef } from 'react';
 import {useDispatch,useSelector } from 'react-redux';
 import { NavLink , useLocation } from 'react-router-dom';
@@ -6,18 +7,16 @@ import { createSelector } from 'reselect';
 
 import { setActiveFilter } from '../../redux/slice/filters-slice'
 import {setAuthorizationResult} from '../../redux/slice/identification-slice';
-import {hideListMenu,openNavMenu,showListMenu} from '../../redux/slice/list-menu-slice';
+import {hideListMenu,openNavMenu,showListMenu,getListOfGenres} from '../../redux/slice/book-slice';
 import close_vector from '../../resources/icon/close_vector.svg'
 import raise_vector from '../../resources/icon/raise_vector.svg'
-import { useBooksServices } from '../../services/books';
 
 export const NavMenu = () => {
-    const {getListOfGenres} = useBooksServices();
 
     const location = useLocation();
     const dispatch = useDispatch();
-    const navMenuOpen = useSelector(state => state.listMenu.navMenuOpen);
-    const showListBook = useSelector(state => state.listMenu.showListBook);
+    const navMenuOpen = useSelector(state => state.book.navMenuOpen);
+    const showListBook = useSelector(state => state.book.showListBook);
     const loading = useSelector(state => state.book.loading);
     const error = useSelector(state => state.book.error);
     const ref = useRef();
@@ -27,9 +26,9 @@ export const NavMenu = () => {
         (state) => state.book.listOfGenres,
         (booksList , listOfGenres) => {
             const arr = booksList.map((item) => item.categories)
-            // eslint-disable-next-line no-return-assign, no-param-reassign, no-sequences
+        
             const list = arr.flat(3).reduce((cnt, cur) => (cnt[cur] = cnt[cur] + 1 || 1, cnt), {});
-            // eslint-disable-next-line padding-line-between-statements, array-callback-return
+       
             const result = listOfGenres.map((i)=> ({
                     ...i,
                     number: list[i.name],
@@ -40,8 +39,8 @@ export const NavMenu = () => {
       )
 
     useEffect (()=> {
-        getListOfGenres()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        dispatch(getListOfGenres());
+
     },[])
     
     const listOfGenres = useSelector(listSelector);
@@ -51,7 +50,7 @@ export const NavMenu = () => {
             dispatch(hideListMenu());
             dispatch(openNavMenu());
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     },[dispatch, loading, location])
 
     useEffect(()=> {

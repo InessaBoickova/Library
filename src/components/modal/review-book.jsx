@@ -4,9 +4,10 @@ import { useParams } from 'react-router';
 
 import { useHooks } from '../../hooks/hooks';
 import { setOpenModalReviewBook } from '../../redux/slice/modal-slice';
-import { useActionUserBook } from '../../services/action-user-book';
+import {useActionUserBook} from '../../services/action-user-book'
 
 export const ModalReviewBook = () => {
+    const {submitBookReview} = useActionUserBook();
     const [starActive, setStarAcive] = useState(0);
     const [valueReview, setValueReview] = useState('');
     const openModalReviewBook = useSelector((state => state.modal.openModalReviewBook))
@@ -15,7 +16,6 @@ export const ModalReviewBook = () => {
     const params = useParams();
     const user = JSON.parse(localStorage.getItem('user'));
     const {id} = user
-    const {submitBookReview} = useActionUserBook();
     const {setCloseModal} = useHooks();
 
     const setStar = (num) => {

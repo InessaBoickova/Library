@@ -4,7 +4,6 @@ import { bookListStyle } from '../slice/book-list-style-slice';
 import { book } from '../slice/book-slice';
 import { filters } from '../slice/filters-slice';
 import { identification } from '../slice/identification-slice'
-import { listMenu } from '../slice/list-menu-slice'
 import { modal } from '../slice/modal-slice';
 
 const stringMiddleware = () => (next)=> (action) => {
@@ -18,7 +17,7 @@ const stringMiddleware = () => (next)=> (action) => {
 }
 
 export const store = configureStore ({
-    reducer: {book,bookListStyle,filters,listMenu,identification,modal},
+    reducer: {book,bookListStyle,filters,identification,modal},
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
     devTools: process.env.NODE_ENV !== 'production',
 })

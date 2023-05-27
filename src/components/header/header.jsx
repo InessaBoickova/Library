@@ -4,15 +4,15 @@ import { useDispatch,useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
+import {openNavMenu} from '../../redux/slice/book-slice'
 import {setAuthorizationResult} from '../../redux/slice/identification-slice'
-import {openNavMenu} from '../../redux/slice/list-menu-slice'
 import userImg from '../../resources/icon/avatar.png';
 import logo from '../../resources/icon/logo.png';
 
 export const Header = () => {
         const [showPanel, setShowPanel] = useState(false)
         const dispatch = useDispatch();
-        const navMenuOpen = useSelector(state=> state.listMenu.navMenuOpen);
+        const navMenuOpen = useSelector(state=> state.book.navMenuOpen);
 
         const user = JSON.parse(localStorage.getItem('user'));
         const {username} = user;

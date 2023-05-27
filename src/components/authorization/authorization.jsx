@@ -3,10 +3,9 @@ import { useForm  } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link} from 'react-router-dom';
 
-import { setRegistrationStep } from '../../redux/slice/identification-slice';
+import {authorizationUser,setRegistrationStep} from '../../redux/slice/identification-slice';
 import eye_open from '../../resources/icon/eye_open.svg';
 import eye_closed from '../../resources/icon/eye-closed.svg';
-import { useIdentificationServices } from '../../services/identification';
 
 export const Authorization = () => {
     const dispatch = useDispatch();
@@ -16,7 +15,6 @@ export const Authorization = () => {
     const [inpurErrorOne,setInpurErrorOne] = useState(false);
     const [inpurErrorTwo,setInpurErrorTwo] = useState(false);
     const [showPassword , setShowPassword] = useState(false);
-    const {authorizationUser} = useIdentificationServices();
 
     const borderOneColor = (inpurErrorOne) ? '#F42C4F' : '#BFC4C9' ;
     const borderTwoColor = (inpurErrorTwo) ? '#F42C4F' : '#BFC4C9' ;
@@ -32,7 +30,7 @@ export const Authorization = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         if(!inpurErrorOne || !inpurErrorTwo){
-            authorizationUser(data);
+            dispatch(authorizationUser(data));
         }
     }
 

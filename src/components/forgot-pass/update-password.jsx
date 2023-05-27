@@ -1,20 +1,19 @@
 import {Fragment, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useSelector } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
+import { updatePasswordUser } from '../../redux/slice/identification-slice'
 import eye_open from '../../resources/icon/eye_open.svg'
 import eye_closed from '../../resources/icon/eye-closed.svg'
 import successful_сheck from '../../resources/icon/successful-сheck.svg'
-import { useIdentificationServices } from '../../services/identification'
 
 import { ForgotPassNotify } from './forgot-pass-notify'
 
 // eslint-disable-next-line complexity
 const UpdatePasswordForm = () => {
     const location = useLocation();
-    const {UpdatePasswordUser} = useIdentificationServices();
-   
+    const dispatch = useDispatch();
     const [activeInputOne , setActiveInputOne] = useState ('identification__form-wrapper');
     const [activeInputTwo , setActiveInputTwo] = useState ('identification__form-wrapper');
 
@@ -47,7 +46,7 @@ const UpdatePasswordForm = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         if (data.password === data.passwordConfirmation){
-            UpdatePasswordUser({...data,  'code': location.search.substring(6)})
+            dispatch(updatePasswordUser({...data,  'code': location.search.substring(6)}))
         }
     }
  

@@ -4,12 +4,12 @@ import {useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { useHooks } from '../../hooks/hooks';
+import {getBook} from '../../redux/slice/book-slice'
 import { setActiveBookId,setOpenModalChangeBookingData,setOpenModalReviewBook,setOpenModalSelectBookingData ,setSelectBookingData } from '../../redux/slice/modal-slice';
 import close_vector from '../../resources/icon/close_vector.svg'
 import raise_vector from '../../resources/icon/raise_vector.svg';
 import userDefalt from '../../resources/icon/user_reviews.png'
 import cat from '../../resources/img/cat_image.png'
-import { useBooksServices } from '../../services/books';
 import { SwiperSlider } from '../slider/slider';
 import { Spinner } from '../spinner/spinner';
 
@@ -19,7 +19,7 @@ export const Book = () => {
     const {setStar,setBookingButtonStyles} = useHooks ();
     
     const {bookId} = useParams();
-    const {getBook} = useBooksServices();
+ 
     const [showReviewsList , setshowReviewsList] = useState(true);
     const {setOpenModal} = useHooks();
 
@@ -27,7 +27,7 @@ export const Book = () => {
     const book = useSelector(state => state.book.book);
 
     useEffect (()=> {
-        getBook(bookId);
+       dispatch(getBook(bookId))
       // eslint-disable-next-line react-hooks/exhaustive-deps
       },[bookId])
 

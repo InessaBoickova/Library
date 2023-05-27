@@ -2,12 +2,12 @@
 import { useEffect } from 'react';
 import {useDispatch,useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 
 import { useHooks } from '../../hooks/hooks';
+import {getBooksList} from '../../redux/slice/book-slice'
 import { setActiveBookId,setOpenModalChangeBookingData , setOpenModalSelectBookingData,setSelectBookingData} from '../../redux/slice/modal-slice';
 import cat from '../../resources/img/cat.png'
-import { useBooksServices } from '../../services/books';
 import { EmptyBookList } from '../empty-book-list/empty-book-list';
 import { Spinner } from '../spinner/spinner';
 
@@ -52,12 +52,11 @@ export const BookList = () => {
     const styleCard = useSelector(state=> state.bookListStyle.style);
     const loading = useSelector(state=> state.book.loading);
     const error = useSelector(state=> state.book.error);
-    const {getBooksList} = useBooksServices();
     const {setStar,setBookingButtonStyles,setOpenModal} = useHooks ();
     const {category} = useParams();
 
     useEffect (()=> {
-      getBooksList();
+      dispatch(getBooksList());
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
