@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import {setRegistrationResult,setRegistrationStep,setRegistrationSuccess} from '../../redux/actions/actions'
+import {setRegistrationResult,setRegistrationStep,setRegistrationSuccess} from '../../redux/slice/identification-slice'
 import { useIdentificationServices } from '../../services/identification';
 
 export const RegistrationNotify = () => {

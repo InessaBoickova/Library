@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useHooks } from '../../hooks/hooks'
-import { setOpenModalSelectBookingData,setSelectBookingData } from '../../redux/actions/actions'
+import { setOpenModalSelectBookingData,setSelectBookingData } from '../../redux/slice/modal-slice'
 import { useActionUserBook } from '../../services/action-user-book';
 
 import { Calendar } from './calendar';

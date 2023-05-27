@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { setRegistrationStep } from '../../redux/actions/actions'
+import { setRegistrationStep } from '../../redux/slice/identification-slice'
 import arrow from '../../resources/icon/arrow.svg'
 import arraw_back from '../../resources/icon/arrow-back.svg'
 import { useIdentificationServices } from '../../services/identification'

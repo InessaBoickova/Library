@@ -1,7 +1,7 @@
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { setBooksList } from '../../redux/actions/actions';
+import { setBooksList } from '../../redux/slice/book-slice';
 import { useBooksServices } from '../../services/books';
 
 export const BreadCrumbs = () => {

@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
-import { useForm  } from 'react-hook-form'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link} from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useForm  } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link} from 'react-router-dom';
 
-import { setRegistrationStep } from '../../redux/actions/actions'
-import eye_open from '../../resources/icon/eye_open.svg'
-import eye_closed from '../../resources/icon/eye-closed.svg'
-import { useIdentificationServices } from '../../services/identification'
+import { setRegistrationStep } from '../../redux/slice/identification-slice';
+import eye_open from '../../resources/icon/eye_open.svg';
+import eye_closed from '../../resources/icon/eye-closed.svg';
+import { useIdentificationServices } from '../../services/identification';
 
 export const Authorization = () => {
     const dispatch = useDispatch();

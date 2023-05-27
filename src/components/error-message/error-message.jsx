@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 
-import { setError,setStatusBookReview,setStatusChangeBookingData,setStatusSelectBookingData } from '../../redux/actions/actions';
-import CheckCircle from '../../resources/icon/CheckCircle.svg'
-import WarningCircle from '../../resources/icon/WarningCircle.svg'
+import { setError } from '../../redux/slice/book-slice';
+import {setStatusBookReview,setStatusChangeBookingData,setStatusSelectBookingData } from '../../redux/slice/modal-slice';
+import CheckCircle from '../../resources/icon/CheckCircle.svg';
+import WarningCircle from '../../resources/icon/WarningCircle.svg';
 
 export const ErrorMessage = (props) => {
     const {status} = props;

@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useLocation,useNavigate } from 'react-router-dom';
 
-import {setForgotPassResult } from '../../redux/actions/actions';
+import {setForgotPassResult } from '../../redux/slice/identification-slice';
 
 export const ForgotPassNotify = () => {
     const status = useSelector(state => state.identification.forgotPassResult);

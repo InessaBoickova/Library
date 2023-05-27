@@ -4,7 +4,7 @@ import {useDispatch,useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import InputMask from 'react-text-mask';
 
-import { setRegistrationData,setRegistrationSuccess } from '../../redux/actions/actions';
+import { setRegistrationData,setRegistrationSuccess } from '../../redux/slice/identification-slice';
 import arrow from '../../resources/icon/arrow.svg'
 import { useIdentificationServices } from '../../services/identification';
 

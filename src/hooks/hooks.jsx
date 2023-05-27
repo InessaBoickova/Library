@@ -1,6 +1,6 @@
 import { useDispatch,useSelector } from 'react-redux';
 
-import { setSelectBookingData } from '../redux/actions/actions';
+import { setSelectBookingData } from '../redux/slice/modal-slice';
 
 export const useHooks = () => {
     const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import {useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 
 import { useHooks } from '../../hooks/hooks';
-import { setOpenModalReviewBook } from '../../redux/actions/actions';
+import { setOpenModalReviewBook } from '../../redux/slice/modal-slice';
 import { useActionUserBook } from '../../services/action-user-book';
 
 export const ModalReviewBook = () => {

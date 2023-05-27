@@ -2,7 +2,8 @@ import {useDispatch , useSelector} from 'react-redux';
 import { useParams } from 'react-router';
 
 import { useHooks } from '../hooks/hooks';
-import { setLoading ,setOpenModalChangeBookingData,setOpenModalReviewBook,setOpenModalSelectBookingData,setStatusChangeBookingData,setStatusSelectBookingData} from '../redux/actions/actions';
+import {setLoading} from '../redux/slice/book-slice'
+import {setOpenModalChangeBookingData,setOpenModalReviewBook,setOpenModalSelectBookingData,setStatusChangeBookingData,setStatusSelectBookingData} from '../redux/slice/modal-slice'
 
 import {useBooksServices} from './books'
 import axiosApi from './interceptors';
@@ -34,7 +35,7 @@ export const useActionUserBook = () => {
             })
             .catch(err => {
                 dispatch(setStatusSelectBookingData('errorBookReview'));
-
+                
                 return err;
             })
             .finally( () => {

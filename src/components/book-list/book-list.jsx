@@ -5,7 +5,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { createSelector } from 'reselect';
 
 import { useHooks } from '../../hooks/hooks';
-import { setActiveBookId,setOpenModalChangeBookingData , setOpenModalSelectBookingData,setSelectBookingData} from '../../redux/actions/actions';
+import { setActiveBookId,setOpenModalChangeBookingData , setOpenModalSelectBookingData,setSelectBookingData} from '../../redux/slice/modal-slice';
 import cat from '../../resources/img/cat.png'
 import { useBooksServices } from '../../services/books';
 import { EmptyBookList } from '../empty-book-list/empty-book-list';

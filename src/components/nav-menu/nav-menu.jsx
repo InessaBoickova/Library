@@ -4,7 +4,9 @@ import { NavLink , useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 import { createSelector } from 'reselect';
 
-import {hideListMenu,openNavMenu,setActiveFilter,setAuthorizationResult,showListMenu} from '../../redux/actions/actions'
+import { setActiveFilter } from '../../redux/slice/filters-slice'
+import {setAuthorizationResult} from '../../redux/slice/identification-slice';
+import {hideListMenu,openNavMenu,showListMenu} from '../../redux/slice/list-menu-slice';
 import close_vector from '../../resources/icon/close_vector.svg'
 import raise_vector from '../../resources/icon/raise_vector.svg'
 import { useBooksServices } from '../../services/books';

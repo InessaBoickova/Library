@@ -4,7 +4,8 @@ import { useDispatch,useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import {openNavMenu,setAuthorizationResult} from '../../redux/actions/actions'
+import {setAuthorizationResult} from '../../redux/slice/identification-slice'
+import {openNavMenu} from '../../redux/slice/list-menu-slice'
 import userImg from '../../resources/icon/avatar.png';
 import logo from '../../resources/icon/logo.png';
 

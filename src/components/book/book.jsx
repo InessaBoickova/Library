@@ -4,7 +4,7 @@ import {useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { useHooks } from '../../hooks/hooks';
-import { setActiveBookId,setOpenModalChangeBookingData,setOpenModalReviewBook,setOpenModalSelectBookingData ,setSelectBookingData } from '../../redux/actions/actions';
+import { setActiveBookId,setOpenModalChangeBookingData,setOpenModalReviewBook,setOpenModalSelectBookingData ,setSelectBookingData } from '../../redux/slice/modal-slice';
 import close_vector from '../../resources/icon/close_vector.svg'
 import raise_vector from '../../resources/icon/raise_vector.svg';
 import userDefalt from '../../resources/icon/user_reviews.png'

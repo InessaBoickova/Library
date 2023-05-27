@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { setRegistrationData,setRegistrationStep} from '../../redux/actions/actions'
+import { setRegistrationData,setRegistrationStep} from '../../redux/slice/identification-slice'
 import arrow from '../../resources/icon/arrow.svg'
 import eye_open from '../../resources/icon/eye_open.svg'
 import eye_closed from '../../resources/icon/eye-closed.svg'

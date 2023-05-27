@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useDispatch , useSelector} from 'react-redux';
 import classNames from 'classnames';
 
-import {setColumn , setRaiseFilter,setRow , setValueInput} from '../../redux/actions/actions'
+import { bookListStyleChangeColumn,bookListStyleChangeRow } from '../../redux/slice/book-list-style-slice'
+import { setRaiseFilter , setValueInput} from '../../redux/slice/filters-slice'
 import  close_input  from '../../resources/icon/close_input.svg';
 
 export const MainFilter = () => {
@@ -18,11 +19,11 @@ export const MainFilter = () => {
        if(oneBtn.includes('active') >= 1 ){
             setOneBtn('filter__btn-button');
             setTwoBtn('filter__btn-button active');
-            dispatch(setRow());
+            dispatch(bookListStyleChangeRow());
        }else if (twoBtn.includes('active') >= 1){
             setOneBtn('filter__btn-button active');
             setTwoBtn('filter__btn-button');
-            dispatch(setColumn());
+            dispatch(bookListStyleChangeColumn());
        }
     }
 

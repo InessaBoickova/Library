@@ -3,8 +3,9 @@ import {useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import { setLoading } from '../redux/slice/book-slice';
 import {setAuthorizationResult,setForgotPassResult,
-        setForgotPassSuccess,setLoading,setRegistrationResult} from '../redux/actions/actions';
+        setForgotPassSuccess,setRegistrationResult} from '../redux/slice/identification-slice';
 
 export const useIdentificationServices = () => {
     const dispatch = useDispatch();
@@ -45,10 +46,9 @@ export const useIdentificationServices = () => {
                 return res;
             })
             .catch(err => {
-                // dispatch(setForgotPassResult('errorSendEmail'))
+                dispatch(setForgotPassResult('errorSendEmail'))
                 dispatch(setForgotPassSuccess(true));
-                dispatch(setForgotPassResult('successSendEmail')); 
-
+            
                 return err;
             })
             .finally( () => {

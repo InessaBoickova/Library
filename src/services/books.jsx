@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 import {useDispatch,useSelector } from 'react-redux';
 
-import { openNavMenu,setBook,setBooksList,setError,setListOfGenres,setLoading } from '../redux/actions/actions';
+import {setBook,setBooksList,setError,setListOfGenres,setLoading} from '../redux/slice/book-slice'
+import { openNavMenu } from '../redux/slice/list-menu-slice';
 
 import axiosApi from './interceptors';
 

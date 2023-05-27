@@ -1,7 +1,7 @@
 import {useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 
-import { setSelectBookingData } from '../../redux/actions/actions';
+import { setSelectBookingData } from '../../redux/slice/modal-slice';
 
 export const Calendar = () => {
     const dispatch = useDispatch();

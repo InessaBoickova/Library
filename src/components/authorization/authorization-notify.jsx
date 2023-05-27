@@ -1,7 +1,7 @@
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { setAuthorizationResult } from '../../redux/actions/actions'
+import { setAuthorizationResult } from '../../redux/slice/identification-slice';
 
 export const AuthorizationNotify = () => {
     const dispatch = useDispatch();

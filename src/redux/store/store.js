@@ -1,9 +1,24 @@
-import {applyMiddleware , combineReducers,compose,legacy_createStore as createStore } from 'redux';
-import thunk from 'redux-thunk';
+import {configureStore} from '@reduxjs/toolkit';
 
-import { book,bookListStyle,filters,identification,listMenu, modal } from '../reducers/reducer';
+import { bookListStyle } from '../slice/book-list-style-slice';
+import { book } from '../slice/book-slice';
+import { filters } from '../slice/filters-slice';
+import { identification } from '../slice/identification-slice'
+import { listMenu } from '../slice/list-menu-slice'
+import { modal } from '../slice/modal-slice';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const stringMiddleware = () => (next)=> (action) => {
+    if(typeof action === 'string') {
+        return next({
+            type: action
+        })
+    }
 
-export const store = createStore(combineReducers({book,bookListStyle,filters,listMenu,identification,modal}), 
-    composeEnhancers(applyMiddleware(thunk)));
+    return next(action);
+}
+
+export const store = configureStore ({
+    reducer: {book,bookListStyle,filters,listMenu,identification,modal},
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
+    devTools: process.env.NODE_ENV !== 'production',
+})
