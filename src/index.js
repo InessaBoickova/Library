@@ -30,10 +30,9 @@ root.render(
                 <Route element={<PrivateRoute/>}>
                     <Route path='/books' element={<Navigate to="/books/all"/>}/>
                     <Route path='/books' element={<MainPage/>}/>
-                    <Route path='/terms' element={<TermsPage/>}/>
                     <Route path='/books/:category' element={<MainPage/>}/>
-                    <Route path='/terms' element={<TermsPage text= "Правила пользования"/>}/>
-                    <Route path='/contract'  element={<TermsPage text= "Договор оферты"/>}/>
+                    <Route path='/terms'  element={<TermsPage text="Правила пользования"/>}/>
+                    <Route path='/contract' element={<TermsPage text="Договор оферты"/>}/>
                     <Route path='/profile' element={<MainPage/>}/>
                     <Route path='/exit'  element={<MainPage/>}/>
                     <Route path='/books/:category/:bookId' element={<BookPage />}/>

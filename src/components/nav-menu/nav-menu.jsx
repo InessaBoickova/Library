@@ -1,9 +1,10 @@
 /*eslint-disable*/
 import {useEffect, useRef } from 'react';
 import {useDispatch,useSelector } from 'react-redux';
-import { NavLink , useLocation } from 'react-router-dom';
+import { NavLink , useLocation,useParams } from 'react-router-dom';
 import classNames from 'classnames';
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
+
 
 import { setActiveFilter } from '../../redux/slice/filters-slice'
 import {setAuthorizationResult} from '../../redux/slice/identification-slice';
@@ -12,14 +13,15 @@ import close_vector from '../../resources/icon/close_vector.svg'
 import raise_vector from '../../resources/icon/raise_vector.svg'
 
 export const NavMenu = () => {
-
     const location = useLocation();
+    const params = useParams();
     const dispatch = useDispatch();
     const navMenuOpen = useSelector(state => state.book.navMenuOpen);
     const showListBook = useSelector(state => state.book.showListBook);
     const loading = useSelector(state => state.book.loading);
     const error = useSelector(state => state.book.error);
     const ref = useRef();
+
 
     const listSelector = createSelector(
         (state) => state.book.booksList,
@@ -46,33 +48,13 @@ export const NavMenu = () => {
     const listOfGenres = useSelector(listSelector);
 
     useEffect (()=> {
-        if ( location.pathname !== '/books/all' && window.innerWidth < 769 && !error ){
+        if ( location.pathname !== '/books/all' && window.innerWidth < 769 && !error && !params.bookId && params.pathname !== 'terms'  && params.pathname !== 'contract'){
+            dispatch(hideListMenu());
             dispatch(hideListMenu());
             dispatch(openNavMenu());
         }
 
     },[dispatch, loading, location])
-
-    useEffect(()=> {
-        
-        const checkIfClickedOutside = (e) => {
-            e.preventDefault();
-
-            if (navMenuOpen && !ref.current.contains(e.target) && !e.target.closest('.header__hamburger') && !(window.innerWidth < 769)) {
-                dispatch(openNavMenu());
-            }
-            if ((e.target.tagName === 'P') && (window.innerWidth < 769)) {
-                dispatch(openNavMenu());
-            } 
-        };
-       
-        document.addEventListener('click' , checkIfClickedOutside);
-        
-        return () => {
-            document.removeEventListener('click' , checkIfClickedOutside);
-        }
-
-    },[dispatch, navMenuOpen]);
 
     const onExit = () => {
         localStorage.removeItem('token');

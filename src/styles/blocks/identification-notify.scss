@@ -8,7 +8,7 @@
     max-width: 600px;
     height: max-content;
     &__title {
-        @include fz24(0.1px ,$main-text-color,30px);
+        @include fz24($main-text-color,30px);
         text-align: center;
     }
     &__descr {

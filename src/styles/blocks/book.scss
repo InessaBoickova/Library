@@ -40,20 +40,20 @@
         &-descr {
             margin-left: 30px;
             h2 {
-                @include fz32(0.1px);
+                @include fz32();
             }
             h3 {
-                @include fz18(0.1px);
+                @include fz18();
                 margin: 24px 0 32px 0;
             }
             &-about {
                 margin-top: 62px;
                 h4 {
-                    @include fz18(0.1px,$main-text-color);
+                    @include fz18($main-text-color);
                     margin-bottom: 32px;
                 }
                 p {
-                    @include fz16(0.1px,null,$main-text-color);
+                    @include fz16($main-text-color);
                     margin-bottom: 25px;
                 }
             }
@@ -62,7 +62,7 @@
     &__score {
         margin-top: 42px;
         h2 { 
-            @include fz18(0.1px,$main-text-color);
+            @include fz18($main-text-color);
         }
         &-star {
             margin-top: 15px;
@@ -71,24 +71,24 @@
             align-items: center;
             justify-content: space-between;
             span {
-                @include fz18(0.1px,$main-text-color);
+                @include fz18($main-text-color);
             }
         }
     }
     &__detail {
         margin-top: 63px;
         h2 {
-            @include fz18(0.1px,$main-text-color);
+            @include fz18($main-text-color);
         }
         &-wrapper {
             display: flex;
             justify-content: space-between;
             p {
-                @include fz16(0.1px, $grey-color);
+                @include fz16($grey-color);
                 font-weight: 600;
             }
             span {
-                @include fz16(0.1px,null,$main-text-color);
+                @include fz16($main-text-color);
             }
         }
         &-small__block {
@@ -106,7 +106,7 @@
         &-title {
             display: flex;
             align-items: center;
-            @include fz18(0.1px,$main-text-color);
+            @include fz18($main-text-color);
             span {
                 margin: 4px 0 0 6px;
                 @include fz14();
@@ -138,7 +138,7 @@
                 display: flex;
                 align-items: center;
                 h4 {
-                    @include fz16(0.1px,#727272);
+                    @include fz16(#727272);
                     margin-left: 26px;
                 }
             }
@@ -149,7 +149,7 @@
                 justify-content: space-between;
             }
             &__descr {
-                @include fz16(0.1px,null,$main-text-color);
+                @include fz16(null,$main-text-color);
                 margin-top: 20px;
             }
             &__user {

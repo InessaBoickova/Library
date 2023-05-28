@@ -11,7 +11,7 @@
         margin: 0 15px;
     }
     &__text {
-        @include fz14(0.1px,null,18px);
+        @include fz14(null,18px);
         color: #A7A7A7;
     }
     &__button {

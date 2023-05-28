@@ -12,7 +12,7 @@
         @include fz24();
     }
     &__subtitle {
-        @include fz14(0.1px,$main-text-color,18px);
+        @include fz14($main-text-color,18px);
         font-weight: 600px;
         margin-top: 8px;
     }
@@ -47,7 +47,7 @@
             }
         }
         &-input {
-            @include fz14(0.1px,$main-text-color,18px);
+            @include fz14($main-text-color,18px);
             padding: 26px 12px 12px 12px;
             background: #F9F9FA;
             width: 100%;
@@ -56,7 +56,7 @@
             outline: 0;
         }
         &-label {
-            @include fz14(0.1px,$main-text-color,18px);
+            @include fz14($main-text-color,18px);
             position: absolute;
             transition: top 0.2s ease-in-out , 
             font-size 0.2s ease-in-out;
@@ -100,12 +100,12 @@
         display: flex;
         align-items: center;
         &-title {
-            @include fz16(0.1px,#727272,24px);
+            @include fz16(#727272,24px);
             margin-right: 16px;
             text-align: center;
         }
         &-link {
-            @include fz12(0.2px,$main-text-color,18px);
+            @include fz12($main-text-color,18px);
             display: flex;
             align-items: center;
             font-weight: 600;

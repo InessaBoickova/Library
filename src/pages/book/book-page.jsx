@@ -26,6 +26,7 @@ export const BookPage = () => {
                 <Header/>
                 <BreadCrumbs/>
             </div>
+          
             {error ? <ErrorMessage status='erorrLoadingBooksList' /> :  <Book/>}
             {statusBookReview && <ErrorMessage status={statusBookReview} /> } 
             {statusSelectBookingData && <ErrorMessage status={statusSelectBookingData} /> }

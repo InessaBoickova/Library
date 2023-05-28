@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     &__title {
-        @include fz32(0.1px,#FFFFFF,40px);
+        @include fz32(#FFFFFF,40px);
         text-align: center;
     }
 }

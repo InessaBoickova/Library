@@ -6,13 +6,13 @@
     justify-content: space-between;
     width: 100%;
     &__input {
+        display: flex;
         &-search {
             position: relative;
             &-mobile {
                 @include shadow ();
-                @include fz12;
+                @include fz12();
                 visibility: hidden;
-                transition: all 0.3s;
                 height: 0;
                 width: 0;
                 background: #FFFFFF;
@@ -50,7 +50,7 @@
                     position: absolute;
                     height: 16px;
                     width: 16px;
-                    top: 0px;
+                    top: 10px;
                     left: 17px;   
                 }
                 &:active, &:focus + .filter__input-search-input-icon  path {

@@ -1,8 +1,4 @@
 @media(max-width:1230px) {
-    .book-page{
-        justify-content: center;
-        align-items: center;
-    }
     .book {
         padding: 0 20px 41px 20px;
         &__main-block {
@@ -108,14 +104,6 @@
 }
 
 @media(max-width:768px) {
-    .book-page { 
-        grid-template-rows: 206px 1fr 104px;
-        &__headers {
-            header {
-                height: 96px;
-            }
-        }
-    }
     .book {
         padding: 0 35px 22px 64px;
         &__main-block {
@@ -138,9 +126,6 @@
                     font-size: 14px;
                     line-height: 18px;
                 }
-                button {
-                    letter-spacing: 1.3px;
-                }
                 &-about {
                     margin: 49px 0 0 -169px;
                     margin-top: 49px;
@@ -148,12 +133,10 @@
                         font-size: 16px;
                         line-height: 24px;
                         margin-bottom: 29px;
-                        letter-spacing: 1.1px;
                     }
                     p {
                         font-size: 16px;
                         line-height: 25px;
-                        letter-spacing: 1.4px;
                         margin-bottom: 20px;
                     }
                 }
@@ -174,14 +157,12 @@
                     font-weight: 600;
                     font-size: 14px;
                     line-height: 18px;
-                    letter-spacing: 1px;
                     color: #A7A7A7;
                 }
                 span {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 18px;
-                    letter-spacing: 0.1px;
                     color: #363636;
                 }
             }
@@ -212,9 +193,6 @@
 }
 
 @media(max-width:760px) {
-    .book-page { 
-        grid-template-rows: 176px 1fr 104px;
-    }
     .book {
         padding: 0 0px 14px 10px;
         &__main-block {
@@ -233,8 +211,7 @@
                 margin-left: 0px;
                 h2 {
                     font-size: 18px;
-                    line-height: 28px; 
-                    letter-spacing: 1.0px;  
+                    line-height: 28px;  
                 }
                 h3 {
                     margin-top: 8px;
@@ -257,7 +234,6 @@
                         margin: 0;
                         font-size: 12px;
                         line-height: 18px;
-                        letter-spacing: 0.7px;
                     }
                 }
             }

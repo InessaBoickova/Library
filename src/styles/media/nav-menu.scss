@@ -14,7 +14,7 @@
         .active__link {
             p {
                 margin: 12px 0 0 10px;
-                font-size: 14px;
+                font-size: 16px;
             }
         }
         &__link-main { 
@@ -51,16 +51,17 @@
             margin: 52px 0  30px -9px;
            }
         }
+        &__btn {
+            left: 230px;
+        }
     }
     .visible {
         position: fixed;
         opacity: 1;
-        left: 63px;
+        left: 25px;
         visibility: visible;
         width: 502px;
-        overflow-x: hidden;
-        overflow-y: auto;
-        height: calc(100% + -50px);     
+        height: max-content;      
         .menu {
             min-height: 442px;
             &__link {
@@ -71,7 +72,6 @@
            }
            &__link-main { 
                 font-size: 18px;
-                letter-spacing: 1.1px;
                 &-mt {
                     margin: 42px 0;
                 }
@@ -93,11 +93,7 @@
         top: 76px;
         &__list {
             padding-left: 16px;
-        }
-        .active_link {
-            letter-spacing: 1.4px;
         } 
-        
     }
     .visible {
         left: 16px;

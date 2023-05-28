@@ -3,12 +3,12 @@
 .text-contract {
     &-list {
         &-main {
-            @include fz16(1.1px);
-            margin-top: 32px;
+            @include fz16();
             font-weight: 600;
+            margin-top: 15px;
         }
         &-submain {
-            @include fz16(1px);
+            @include fz16();
             padding-left: 28px;
             li {
                 margin-top: 16px;

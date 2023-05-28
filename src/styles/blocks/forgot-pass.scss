@@ -11,7 +11,7 @@
         @include fz24();
     }
     &__link {
-        @include fz12(0.2px,#727272, 18px);
+        @include fz12(#727272, 18px);
         margin: 0 0 55px -39px;
         font-weight: 600;
         display: flex;
@@ -47,7 +47,7 @@
         }
       
         &-input {
-            @include fz14(0.1px,$main-text-color,18px);
+            @include fz14($main-text-color,18px);
             padding: 26px 12px 12px 12px;
             background: #F9F9FA;
             width: 100%;
@@ -57,7 +57,7 @@
             border:none; 
         }
         &-label {
-            @include fz14(0.1px,$main-text-color,18px);
+            @include fz14($main-text-color,18px);
             position: absolute;
             transition: top 0.2s ease-in-out , font-size 0.2s ease-in-out;
             top: 19px;
@@ -79,7 +79,7 @@
         }
     }
     &__info {
-        @include fz12(0.2px,#727272,16px);
+        @include fz12(#727272,16px);
         margin: 2px 0 0 10px;
     }
     &__transition {
@@ -87,12 +87,12 @@
         display: flex;
         align-items: center;
         &-title {
-            @include fz16(0.1px,#727272,24px);
+            @include fz16(#727272,24px);
             margin-right: 16px;
             text-align: center;
         }
         &-link {
-            @include fz12(0.2px,$main-text-color,18px);
+            @include fz12($main-text-color,18px);
             display: flex;
             align-items: center;
             font-weight: 600;

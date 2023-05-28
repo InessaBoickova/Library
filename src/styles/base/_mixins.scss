@@ -17,66 +17,58 @@ $grey-color: #A7A7A7;
     font-weight: 600;
     font-size: $font-size;
     line-height: 150%;
-    letter-spacing: 0.2px;
     text-transform: uppercase;
     color: #FFFFFF;
     border: none;
     text-align: center; 
 }
 
-@mixin fz32($letter-spacing: 0.1px ,$color:$main-text-color,$line-height: 40px) {
+@mixin fz32($color:$main-text-color,$line-height: 40px) {
     font-weight: 700;
     font-size: 32px;
     line-height: $line-height;
-    letter-spacing: $letter-spacing;
     color:$color;
 }
 
-@mixin fz24 ($letter-spacing: 0.1px ,$color: $main-text-color,$line-height: 30px){
+@mixin fz24 ($color: $main-text-color,$line-height: 30px){
     font-weight: 700;
     font-size: 24px;
     line-height: $line-height;
     color: $color;
-    letter-spacing: $letter-spacing;
 }
 
-@mixin fz22 ($letter-spacing: 0.1px ,$color: $main-text-color,$line-height: 32px){
+@mixin fz22 ($color: $main-text-color,$line-height: 32px){
     font-weight: 700;
     font-size: 22px;
     line-height: $line-height;
     color: $color;
-    letter-spacing: $letter-spacing;
 }
 
-@mixin fz18 ($letter-spacing: 0.1px ,$color: $grey-color,$line-height: 28px) {
+@mixin fz18 ($color: $grey-color,$line-height: 28px) {
     font-weight: 700;
     font-size: 18px;
     line-height: $line-height;
-    letter-spacing: $letter-spacing;
     color: $color;
 }
 
-@mixin fz16($letter-spacing: 0.1px , $color: $main-text-color, $line-height: 24px) {
+@mixin fz16($color: $main-text-color, $line-height: 24px) {
     font-weight: 400;
     font-size: 16px;
     line-height: $line-height;
-    letter-spacing: $letter-spacing;
     color: $color;
 }
 
-@mixin fz14 ($letter-spacing: 0.1px , $color: $grey-color, $line-height: 24px){
+@mixin fz14 ($color: $grey-color, $line-height: 24px){
     font-weight: 400;
     font-size: 14px;
     line-height: $line-height;
-    letter-spacing: $letter-spacing;
     color: $color;
 }
 
-@mixin fz12($letter-spacing: 0.2px , $color: $grey-color, $line-height: 16px) {
+@mixin fz12($color: $grey-color, $line-height: 16px) {
     font-weight: 500;
     font-size: 12px;  
     line-height: $line-height;
-    letter-spacing: $letter-spacing;
     color: $color;
 }
 
