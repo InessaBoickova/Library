@@ -1,3 +1,4 @@
+import {Helmet} from 'react-helmet';
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
@@ -11,6 +12,9 @@ export const ForgotPassPage = () => {
 
     return (
         <div className="forgot-pass-page">
+            <Helmet>
+                <title>Password recovery</title>
+            </Helmet>
             <h2 className="forgot-pass-page__title"> Cleverland </h2>
             {loadingIdentification && <Spinner/>}
             {(!loadingIdentification && !location.search) && <ForgotPass/>}

@@ -1,3 +1,4 @@
+import {Helmet} from 'react-helmet';
 import { useSelector } from 'react-redux';
 
 import { BookList } from '../../components/book-list/book-list';
@@ -20,6 +21,9 @@ export const MainPage = () => {
 
     return (
         <div className='main-page'>
+            <Helmet>
+                <title>Library</title>
+            </Helmet>
             <Header/>
             {error ? <ErrorMessage status='erorrLoadingBooksList'/> : null}
             {statusSelectBookingData && <ErrorMessage status={statusSelectBookingData} /> } 

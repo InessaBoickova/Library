@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import {Helmet} from 'react-helmet';
 import { useSelector } from 'react-redux'
 import {useNavigate } from 'react-router-dom';
 
@@ -19,6 +20,9 @@ export const AuthorizationPage = () => {
 
     return (
         <div className="authorization-page">
+            <Helmet>
+                <title>Authorization</title>
+            </Helmet>
             <h2 className="authorization-page__title"> Cleverland </h2>
             {loadingIdentification && <Spinner/> }
             {(authorizationResult !== 'error') && <Authorization/> }

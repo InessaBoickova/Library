@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { useSelector } from 'react-redux';
 
 import { Book } from '../../components/book/book';
@@ -11,6 +12,7 @@ import { ModalSelectBookingDate } from '../../components/modal/select-booking-da
 import { NavMenu } from '../../components/nav-menu/nav-menu';
 
 export const BookPage = () => {
+    const book = useSelector(state=> state.book.book);
     const error = useSelector(state=> state.book.error);
     const openModalReviewBook = useSelector(state=> state.modal.openModalReviewBook);
     const statusBookReview = useSelector(state => state.modal.statusBookReview);
@@ -21,6 +23,9 @@ export const BookPage = () => {
    
     return (
         <section className='book-page'>
+              <Helmet>
+                <title>{book.title}</title>
+            </Helmet>
             <NavMenu/>
             <div className="book-page__headers">
                 <Header/>
