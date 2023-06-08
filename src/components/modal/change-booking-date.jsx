@@ -20,7 +20,7 @@ export const ModalChangeBookingDate = () => {
     const disableButton = (selectBookingData) && new Date(activeBookId.dateOrder).getTime() === selectBookingData.getTime()
 
     const onSubmitEdit = () => {
-        editBookBooking()
+        editBookBooking(selectBookingData)
     }
 
     const onSubmitDelete = () => {

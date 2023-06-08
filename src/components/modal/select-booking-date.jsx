@@ -12,11 +12,11 @@ export const ModalSelectBookingDate = () => {
     const ref = useRef(null);
     const refOverlay = useRef(null);
     const {createBookBooking} = useActionUserBook();
-    const openModalSelectBookingData = useSelector(state=> state.modal.openModalSelectBookingData)
-    const selectBookingData = useSelector(state => state.modal.selectBookingData)
+    const openModalSelectBookingData = useSelector(state=> state.modal.openModalSelectBookingData);
+    const selectBookingData = useSelector(state => state.modal.selectBookingData);
 
     const onSubmit = () => {
-        createBookBooking(selectBookingData)
+        createBookBooking(selectBookingData);
     }
 
     useEffect(() => {
